@@ -1,0 +1,1645 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-002 \u2014 MCP Protocol Serving and Transports",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {
+    "/_internal/a2a/agents/{agent_name}/card": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9973",
+        "x-source": "mcpgateway/main.py:9973",
+        "x-mounts": [
+          "/_internal/a2a/agents/{agent_name}/card"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/agents/{agent_name}/card/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9972",
+        "x-source": "mcpgateway/main.py:9972",
+        "x-mounts": [
+          "/_internal/a2a/agents/{agent_name}/card/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/agents/{agent_name}/resolve": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9891",
+        "x-source": "mcpgateway/main.py:9891",
+        "x-mounts": [
+          "/_internal/a2a/agents/{agent_name}/resolve"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/agents/{agent_name}/resolve/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9890",
+        "x-source": "mcpgateway/main.py:9890",
+        "x-mounts": [
+          "/_internal/a2a/agents/{agent_name}/resolve/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/authenticate": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9809",
+        "x-source": "mcpgateway/main.py:9809",
+        "x-mounts": [
+          "/_internal/a2a/authenticate"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/authenticate/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9808",
+        "x-source": "mcpgateway/main.py:9808",
+        "x-mounts": [
+          "/_internal/a2a/authenticate/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/events/flush": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10289",
+        "x-source": "mcpgateway/main.py:10289",
+        "x-mounts": [
+          "/_internal/a2a/events/flush"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/events/flush/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10288",
+        "x-source": "mcpgateway/main.py:10288",
+        "x-mounts": [
+          "/_internal/a2a/events/flush/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/events/replay": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10349",
+        "x-source": "mcpgateway/main.py:10349",
+        "x-mounts": [
+          "/_internal/a2a/events/replay"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/events/replay/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10348",
+        "x-source": "mcpgateway/main.py:10348",
+        "x-mounts": [
+          "/_internal/a2a/events/replay/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/get/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9877",
+        "x-source": "mcpgateway/main.py:9877",
+        "x-mounts": [
+          "/_internal/a2a/get/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/get/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9876",
+        "x-source": "mcpgateway/main.py:9876",
+        "x-mounts": [
+          "/_internal/a2a/get/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/invoke/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9863",
+        "x-source": "mcpgateway/main.py:9863",
+        "x-mounts": [
+          "/_internal/a2a/invoke/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/invoke/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9862",
+        "x-source": "mcpgateway/main.py:9862",
+        "x-mounts": [
+          "/_internal/a2a/invoke/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/list/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9870",
+        "x-source": "mcpgateway/main.py:9870",
+        "x-mounts": [
+          "/_internal/a2a/list/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/list/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9869",
+        "x-source": "mcpgateway/main.py:9869",
+        "x-mounts": [
+          "/_internal/a2a/list/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/create": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10132",
+        "x-source": "mcpgateway/main.py:10132",
+        "x-mounts": [
+          "/_internal/a2a/push/create"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/create/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10131",
+        "x-source": "mcpgateway/main.py:10131",
+        "x-mounts": [
+          "/_internal/a2a/push/create/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/delete": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10251",
+        "x-source": "mcpgateway/main.py:10251",
+        "x-mounts": [
+          "/_internal/a2a/push/delete"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/delete/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10250",
+        "x-source": "mcpgateway/main.py:10250",
+        "x-mounts": [
+          "/_internal/a2a/push/delete/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/get": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10172",
+        "x-source": "mcpgateway/main.py:10172",
+        "x-mounts": [
+          "/_internal/a2a/push/get"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/get/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10171",
+        "x-source": "mcpgateway/main.py:10171",
+        "x-mounts": [
+          "/_internal/a2a/push/get/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10210",
+        "x-source": "mcpgateway/main.py:10210",
+        "x-mounts": [
+          "/_internal/a2a/push/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/push/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10209",
+        "x-source": "mcpgateway/main.py:10209",
+        "x-mounts": [
+          "/_internal/a2a/push/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/cancel": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10095",
+        "x-source": "mcpgateway/main.py:10095",
+        "x-mounts": [
+          "/_internal/a2a/tasks/cancel"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/cancel/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10094",
+        "x-source": "mcpgateway/main.py:10094",
+        "x-mounts": [
+          "/_internal/a2a/tasks/cancel/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/get": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10021",
+        "x-source": "mcpgateway/main.py:10021",
+        "x-mounts": [
+          "/_internal/a2a/tasks/get"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/get/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10020",
+        "x-source": "mcpgateway/main.py:10020",
+        "x-mounts": [
+          "/_internal/a2a/tasks/get/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10058",
+        "x-source": "mcpgateway/main.py:10058",
+        "x-mounts": [
+          "/_internal/a2a/tasks/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/a2a/tasks/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10057",
+        "x-source": "mcpgateway/main.py:10057",
+        "x-mounts": [
+          "/_internal/a2a/tasks/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/authenticate": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8122",
+        "x-source": "mcpgateway/main.py:8122",
+        "x-mounts": [
+          "/_internal/mcp/authenticate"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/authenticate/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8121",
+        "x-source": "mcpgateway/main.py:8121",
+        "x-mounts": [
+          "/_internal/mcp/authenticate/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/completion/complete": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9151",
+        "x-source": "mcpgateway/main.py:9151",
+        "x-mounts": [
+          "/_internal/mcp/completion/complete"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/completion/complete/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9150",
+        "x-source": "mcpgateway/main.py:9150",
+        "x-mounts": [
+          "/_internal/mcp/completion/complete/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/initialize": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8205",
+        "x-source": "mcpgateway/main.py:8205",
+        "x-mounts": [
+          "/_internal/mcp/initialize"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/initialize/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8204",
+        "x-source": "mcpgateway/main.py:8204",
+        "x-mounts": [
+          "/_internal/mcp/initialize/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/logging/setLevel": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9299",
+        "x-source": "mcpgateway/main.py:9299",
+        "x-mounts": [
+          "/_internal/mcp/logging/setLevel"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/logging/setLevel/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9298",
+        "x-source": "mcpgateway/main.py:9298",
+        "x-mounts": [
+          "/_internal/mcp/logging/setLevel/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/cancelled": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8453",
+        "x-source": "mcpgateway/main.py:8453",
+        "x-mounts": [
+          "/_internal/mcp/notifications/cancelled"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/cancelled/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8452",
+        "x-source": "mcpgateway/main.py:8452",
+        "x-mounts": [
+          "/_internal/mcp/notifications/cancelled/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/initialized": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8326",
+        "x-source": "mcpgateway/main.py:8326",
+        "x-mounts": [
+          "/_internal/mcp/notifications/initialized"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/initialized/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8325",
+        "x-source": "mcpgateway/main.py:8325",
+        "x-mounts": [
+          "/_internal/mcp/notifications/initialized/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/message": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8386",
+        "x-source": "mcpgateway/main.py:8386",
+        "x-mounts": [
+          "/_internal/mcp/notifications/message"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/notifications/message/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8385",
+        "x-source": "mcpgateway/main.py:8385",
+        "x-mounts": [
+          "/_internal/mcp/notifications/message/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/get": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9470",
+        "x-source": "mcpgateway/main.py:9470",
+        "x-mounts": [
+          "/_internal/mcp/prompts/get"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/get/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9469",
+        "x-source": "mcpgateway/main.py:9469",
+        "x-mounts": [
+          "/_internal/mcp/prompts/get/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/get/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9786",
+        "x-source": "mcpgateway/main.py:9786",
+        "x-mounts": [
+          "/_internal/mcp/prompts/get/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/get/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9785",
+        "x-source": "mcpgateway/main.py:9785",
+        "x-mounts": [
+          "/_internal/mcp/prompts/get/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9369",
+        "x-source": "mcpgateway/main.py:9369",
+        "x-mounts": [
+          "/_internal/mcp/prompts/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9368",
+        "x-source": "mcpgateway/main.py:9368",
+        "x-mounts": [
+          "/_internal/mcp/prompts/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/list/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9768",
+        "x-source": "mcpgateway/main.py:9768",
+        "x-mounts": [
+          "/_internal/mcp/prompts/list/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/prompts/list/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9767",
+        "x-source": "mcpgateway/main.py:9767",
+        "x-mounts": [
+          "/_internal/mcp/prompts/list/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8583",
+        "x-source": "mcpgateway/main.py:8583",
+        "x-mounts": [
+          "/_internal/mcp/resources/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8582",
+        "x-source": "mcpgateway/main.py:8582",
+        "x-mounts": [
+          "/_internal/mcp/resources/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/list/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9714",
+        "x-source": "mcpgateway/main.py:9714",
+        "x-mounts": [
+          "/_internal/mcp/resources/list/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/list/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9713",
+        "x-source": "mcpgateway/main.py:9713",
+        "x-mounts": [
+          "/_internal/mcp/resources/list/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/read": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8680",
+        "x-source": "mcpgateway/main.py:8680",
+        "x-mounts": [
+          "/_internal/mcp/resources/read"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/read/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8679",
+        "x-source": "mcpgateway/main.py:8679",
+        "x-mounts": [
+          "/_internal/mcp/resources/read/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/read/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9732",
+        "x-source": "mcpgateway/main.py:9732",
+        "x-mounts": [
+          "/_internal/mcp/resources/read/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/read/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9731",
+        "x-source": "mcpgateway/main.py:9731",
+        "x-mounts": [
+          "/_internal/mcp/resources/read/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/subscribe": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8805",
+        "x-source": "mcpgateway/main.py:8805",
+        "x-mounts": [
+          "/_internal/mcp/resources/subscribe"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/subscribe/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8804",
+        "x-source": "mcpgateway/main.py:8804",
+        "x-mounts": [
+          "/_internal/mcp/resources/subscribe/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/templates/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8993",
+        "x-source": "mcpgateway/main.py:8993",
+        "x-mounts": [
+          "/_internal/mcp/resources/templates/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/templates/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8992",
+        "x-source": "mcpgateway/main.py:8992",
+        "x-mounts": [
+          "/_internal/mcp/resources/templates/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/templates/list/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9750",
+        "x-source": "mcpgateway/main.py:9750",
+        "x-mounts": [
+          "/_internal/mcp/resources/templates/list/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/templates/list/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9749",
+        "x-source": "mcpgateway/main.py:9749",
+        "x-mounts": [
+          "/_internal/mcp/resources/templates/list/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/unsubscribe": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8907",
+        "x-source": "mcpgateway/main.py:8907",
+        "x-mounts": [
+          "/_internal/mcp/resources/unsubscribe"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/resources/unsubscribe/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8906",
+        "x-source": "mcpgateway/main.py:8906",
+        "x-mounts": [
+          "/_internal/mcp/resources/unsubscribe/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/roots/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9081",
+        "x-source": "mcpgateway/main.py:9081",
+        "x-mounts": [
+          "/_internal/mcp/roots/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/roots/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9080",
+        "x-source": "mcpgateway/main.py:9080",
+        "x-mounts": [
+          "/_internal/mcp/roots/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/rpc": {
+      "post": {
+        "summary": "Route handler at mcpgateway/utils/internal_http.py:192",
+        "x-source": "mcpgateway/utils/internal_http.py:192",
+        "x-mounts": [
+          "/_internal/mcp/rpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/rpc/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8170",
+        "x-source": "mcpgateway/main.py:8170",
+        "x-mounts": [
+          "/_internal/mcp/rpc/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/sampling/createMessage": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9233",
+        "x-source": "mcpgateway/main.py:9233",
+        "x-mounts": [
+          "/_internal/mcp/sampling/createMessage"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/sampling/createMessage/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9232",
+        "x-source": "mcpgateway/main.py:9232",
+        "x-mounts": [
+          "/_internal/mcp/sampling/createMessage/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/session": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/main.py:8282",
+        "x-source": "mcpgateway/main.py:8282",
+        "x-mounts": [
+          "/_internal/mcp/session"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/session/": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/main.py:8281",
+        "x-source": "mcpgateway/main.py:8281",
+        "x-mounts": [
+          "/_internal/mcp/session/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10974",
+        "x-source": "mcpgateway/main.py:10974",
+        "x-mounts": [
+          "/_internal/mcp/tools/call"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10973",
+        "x-source": "mcpgateway/main.py:10973",
+        "x-mounts": [
+          "/_internal/mcp/tools/call/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call/metric": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:11278",
+        "x-source": "mcpgateway/main.py:11278",
+        "x-mounts": [
+          "/_internal/mcp/tools/call/metric"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call/metric/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:11277",
+        "x-source": "mcpgateway/main.py:11277",
+        "x-mounts": [
+          "/_internal/mcp/tools/call/metric/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call/resolve": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:11097",
+        "x-source": "mcpgateway/main.py:11097",
+        "x-mounts": [
+          "/_internal/mcp/tools/call/resolve"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/call/resolve/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:11096",
+        "x-source": "mcpgateway/main.py:11096",
+        "x-mounts": [
+          "/_internal/mcp/tools/call/resolve/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/list": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8523",
+        "x-source": "mcpgateway/main.py:8523",
+        "x-mounts": [
+          "/_internal/mcp/tools/list"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/list/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8522",
+        "x-source": "mcpgateway/main.py:8522",
+        "x-mounts": [
+          "/_internal/mcp/tools/list/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/list/authz": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9605",
+        "x-source": "mcpgateway/main.py:9605",
+        "x-mounts": [
+          "/_internal/mcp/tools/list/authz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/mcp/tools/list/authz/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:9604",
+        "x-source": "mcpgateway/main.py:9604",
+        "x-mounts": [
+          "/_internal/mcp/tools/list/authz/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/appbridge/sessions": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10663",
+        "x-source": "mcpgateway/main.py:10663",
+        "x-mounts": [
+          "/appbridge/sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/appbridge/sessions/{app_session_id}/rpc": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:10893",
+        "x-source": "mcpgateway/main.py:10893",
+        "x-mounts": [
+          "/appbridge/sessions/{app_session_id}/rpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/cancellation/cancel": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/cancellation_router.py:68",
+        "x-source": "mcpgateway/routers/cancellation_router.py:68",
+        "x-mounts": [
+          "/cancellation/cancel",
+          "/v1/cancellation/cancel"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/cancellation/status/{request_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/cancellation_router.py:110",
+        "x-source": "mcpgateway/routers/cancellation_router.py:110",
+        "x-mounts": [
+          "/cancellation/status/{request_id}",
+          "/v1/cancellation/status/{request_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/mcp": {
+      "post": {
+        "summary": "Route handler at mcpgateway/translate.py:2025",
+        "x-source": "mcpgateway/translate.py:2025",
+        "x-mounts": [
+          "/mcp"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/message": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:12268",
+        "x-source": "mcpgateway/main.py:12268",
+        "x-mounts": [
+          "/message"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/protocol/completion/complete": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4087",
+        "x-source": "mcpgateway/main.py:4087",
+        "x-mounts": [
+          "/protocol/completion/complete",
+          "/v1/protocol/completion/complete"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/protocol/initialize": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:3992",
+        "x-source": "mcpgateway/main.py:3992",
+        "x-mounts": [
+          "/protocol/initialize",
+          "/v1/protocol/initialize"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/protocol/notifications": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4052",
+        "x-source": "mcpgateway/main.py:4052",
+        "x-mounts": [
+          "/protocol/notifications",
+          "/v1/protocol/notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/protocol/ping": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4024",
+        "x-source": "mcpgateway/main.py:4024",
+        "x-mounts": [
+          "/protocol/ping",
+          "/v1/protocol/ping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/protocol/sampling/createMessage": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4112",
+        "x-source": "mcpgateway/main.py:4112",
+        "x-mounts": [
+          "/protocol/sampling/createMessage",
+          "/v1/protocol/sampling/createMessage"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/reverse-proxy/sessions": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:328",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:328",
+        "x-mounts": [
+          "/reverse-proxy/sessions",
+          "/v1/reverse-proxy/sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/reverse-proxy/sessions/{session_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:363",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:363",
+        "x-mounts": [
+          "/reverse-proxy/sessions/{session_id}",
+          "/v1/reverse-proxy/sessions/{session_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/reverse-proxy/sessions/{session_id}/request": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:399",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:399",
+        "x-mounts": [
+          "/reverse-proxy/sessions/{session_id}/request",
+          "/v1/reverse-proxy/sessions/{session_id}/request"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/reverse-proxy/sse/{session_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:502",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:502",
+        "x-mounts": [
+          "/reverse-proxy/sse/{session_id}",
+          "/v1/reverse-proxy/sse/{session_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/rpc": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8106",
+        "x-source": "mcpgateway/main.py:8106",
+        "x-mounts": [
+          "/rpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/rpc/": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:8105",
+        "x-source": "mcpgateway/main.py:8105",
+        "x-mounts": [
+          "/rpc/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/sse": {
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:12161",
+        "x-source": "mcpgateway/main.py:12161",
+        "x-mounts": [
+          "/sse"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/cancellation/cancel": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/cancellation_router.py:68",
+        "x-source": "mcpgateway/routers/cancellation_router.py:68",
+        "x-mounts": [
+          "/cancellation/cancel",
+          "/v1/cancellation/cancel"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/cancellation/status/{request_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/cancellation_router.py:110",
+        "x-source": "mcpgateway/routers/cancellation_router.py:110",
+        "x-mounts": [
+          "/cancellation/status/{request_id}",
+          "/v1/cancellation/status/{request_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/protocol/completion/complete": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4087",
+        "x-source": "mcpgateway/main.py:4087",
+        "x-mounts": [
+          "/protocol/completion/complete",
+          "/v1/protocol/completion/complete"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/protocol/initialize": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:3992",
+        "x-source": "mcpgateway/main.py:3992",
+        "x-mounts": [
+          "/protocol/initialize",
+          "/v1/protocol/initialize"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/protocol/notifications": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4052",
+        "x-source": "mcpgateway/main.py:4052",
+        "x-mounts": [
+          "/protocol/notifications",
+          "/v1/protocol/notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/protocol/ping": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4024",
+        "x-source": "mcpgateway/main.py:4024",
+        "x-mounts": [
+          "/protocol/ping",
+          "/v1/protocol/ping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/protocol/sampling/createMessage": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:4112",
+        "x-source": "mcpgateway/main.py:4112",
+        "x-mounts": [
+          "/protocol/sampling/createMessage",
+          "/v1/protocol/sampling/createMessage"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/reverse-proxy/sessions": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:328",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:328",
+        "x-mounts": [
+          "/reverse-proxy/sessions",
+          "/v1/reverse-proxy/sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/reverse-proxy/sessions/{session_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:363",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:363",
+        "x-mounts": [
+          "/reverse-proxy/sessions/{session_id}",
+          "/v1/reverse-proxy/sessions/{session_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/reverse-proxy/sessions/{session_id}/request": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:399",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:399",
+        "x-mounts": [
+          "/reverse-proxy/sessions/{session_id}/request",
+          "/v1/reverse-proxy/sessions/{session_id}/request"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/reverse-proxy/sse/{session_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/reverse_proxy.py:502",
+        "x-source": "mcpgateway/routers/reverse_proxy.py:502",
+        "x-mounts": [
+          "/reverse-proxy/sse/{session_id}",
+          "/v1/reverse-proxy/sse/{session_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

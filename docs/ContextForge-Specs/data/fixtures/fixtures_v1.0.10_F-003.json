@@ -1,0 +1,234 @@
+{
+  "email_users": [
+    {
+      "id": "OPEN",
+      "email": "OPEN",
+      "is_admin": false,
+      "is_active": false,
+      "auth_provider": "OPEN",
+      "password_hash_type": "OPEN",
+      "failed_login_attempts": 0,
+      "password_change_required": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "email_teams": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "slug": "OPEN",
+      "created_by": "OPEN",
+      "is_personal": false,
+      "visibility": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "is_active": false
+    }
+  ],
+  "email_team_members": [
+    {
+      "id": "OPEN",
+      "team_id": "OPEN",
+      "user_email": "OPEN",
+      "role": "OPEN",
+      "joined_at": "1970-01-01T00:00:00Z",
+      "is_active": false
+    }
+  ],
+  "email_team_member_history": [
+    {
+      "id": "OPEN",
+      "team_member_id": "OPEN",
+      "team_id": "OPEN",
+      "user_email": "OPEN",
+      "role": "OPEN",
+      "action": "OPEN",
+      "action_timestamp": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "email_team_invitations": [
+    {
+      "id": "OPEN",
+      "team_id": "OPEN",
+      "email": "OPEN",
+      "role": "OPEN",
+      "invited_by": "OPEN",
+      "invited_at": "1970-01-01T00:00:00Z",
+      "expires_at": "1970-01-01T00:00:00Z",
+      "token": "OPEN",
+      "is_active": false
+    }
+  ],
+  "email_team_join_requests": [
+    {
+      "id": "OPEN",
+      "team_id": "OPEN",
+      "user_email": "OPEN",
+      "status": "OPEN",
+      "requested_at": "1970-01-01T00:00:00Z",
+      "expires_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "email_auth_events": [
+    {
+      "id": 0,
+      "timestamp": "1970-01-01T00:00:00Z",
+      "event_type": "OPEN",
+      "success": false
+    }
+  ],
+  "roles": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "scope": "OPEN",
+      "permissions": {},
+      "created_by": "OPEN",
+      "is_system_role": false,
+      "is_active": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "user_roles": [
+    {
+      "id": "OPEN",
+      "user_email": "OPEN",
+      "role_id": "OPEN",
+      "scope": "OPEN",
+      "granted_by": "OPEN",
+      "granted_at": "1970-01-01T00:00:00Z",
+      "is_active": false
+    }
+  ],
+  "permission_audit_log": [
+    {
+      "id": 0,
+      "timestamp": "1970-01-01T00:00:00Z",
+      "permission": "OPEN",
+      "granted": false
+    }
+  ],
+  "email_api_tokens": [
+    {
+      "id": "OPEN",
+      "user_email": "OPEN",
+      "name": "OPEN",
+      "jti": "OPEN",
+      "token_hash": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "is_active": false
+    }
+  ],
+  "token_usage_logs": [
+    {
+      "id": 0,
+      "token_jti": "OPEN",
+      "user_email": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "blocked": false
+    }
+  ],
+  "token_revocations": [
+    {
+      "jti": "OPEN",
+      "revoked_at": "1970-01-01T00:00:00Z",
+      "revoked_by": "OPEN"
+    }
+  ],
+  "oauth_tokens": [
+    {
+      "id": "OPEN",
+      "gateway_id": "OPEN",
+      "user_id": "OPEN",
+      "app_user_email": "OPEN",
+      "access_token": "OPEN",
+      "token_type": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "oauth_states": [
+    {
+      "id": "OPEN",
+      "gateway_id": "OPEN",
+      "state": "OPEN",
+      "expires_at": "1970-01-01T00:00:00Z",
+      "used": false,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "registered_oauth_clients": [
+    {
+      "id": "OPEN",
+      "gateway_id": "OPEN",
+      "issuer": "OPEN",
+      "client_id": "OPEN",
+      "redirect_uris": "OPEN",
+      "grant_types": "OPEN",
+      "token_endpoint_auth_method": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "is_active": false
+    }
+  ],
+  "sso_providers": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "display_name": "OPEN",
+      "provider_type": "OPEN",
+      "is_enabled": false,
+      "client_id": "OPEN",
+      "client_secret_encrypted": "OPEN",
+      "authorization_url": "OPEN",
+      "token_url": "OPEN",
+      "userinfo_url": "OPEN",
+      "trusted_domains": {},
+      "scope": "OPEN",
+      "auto_create_users": false,
+      "team_mapping": {},
+      "provider_metadata": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "sso_auth_sessions": [
+    {
+      "id": "OPEN",
+      "provider_id": "OPEN",
+      "state": "OPEN",
+      "redirect_uri": "OPEN",
+      "expires_at": "1970-01-01T00:00:00Z",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "password_reset_tokens": [
+    {
+      "id": "OPEN",
+      "user_email": "OPEN",
+      "token_hash": "OPEN",
+      "expires_at": "1970-01-01T00:00:00Z",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "password_history": [
+    {
+      "id": "OPEN",
+      "user_email": "OPEN",
+      "password_hash": "OPEN",
+      "changed_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "pending_user_approvals": [
+    {
+      "id": "OPEN",
+      "email": "OPEN",
+      "full_name": "OPEN",
+      "auth_provider": "OPEN",
+      "requested_at": "1970-01-01T00:00:00Z",
+      "expires_at": "1970-01-01T00:00:00Z",
+      "status": "OPEN"
+    }
+  ]
+}

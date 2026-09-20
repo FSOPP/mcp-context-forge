@@ -1,0 +1,358 @@
+@startuml erd_v1.0.10_F-004
+' F-004 — Observability, Metrics and Audit. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "observability_traces" as observability_traces {
+  * trace_id : String <<PK>>
+  --
+  * name : String
+  * start_time : DateTime
+    end_time : DateTime
+    duration_ms : Float
+  * status : String
+    status_message : Text
+    http_method : String
+    http_url : String
+    http_status_code : Integer
+    user_email : String
+    user_agent : Text
+    ip_address : String
+    attributes : JSON
+    resource_attributes : JSON
+  * created_at : DateTime
+}
+
+entity "observability_spans" as observability_spans {
+  * span_id : String <<PK>>
+  --
+  * trace_id : String <<FK>>
+    parent_span_id : String <<FK>>
+  * name : String
+  * kind : String
+  * start_time : DateTime
+    end_time : DateTime
+    duration_ms : Float
+  * status : String
+    status_message : Text
+    attributes : JSON
+    resource_name : String
+    resource_type : String
+    resource_id : String
+  * created_at : DateTime
+}
+
+entity "observability_events" as observability_events {
+  * id : Integer <<PK>>
+  --
+  * span_id : String <<FK>>
+  * name : String
+  * timestamp : DateTime
+    attributes : JSON
+    severity : String
+    message : Text
+    exception_type : String
+    exception_message : Text
+    exception_stacktrace : Text
+  * created_at : DateTime
+}
+
+entity "observability_metrics" as observability_metrics {
+  * id : Integer <<PK>>
+  --
+  * name : String
+  * metric_type : String
+  * value : Float
+  * timestamp : DateTime
+    unit : String
+    attributes : JSON
+    resource_type : String
+    resource_id : String
+    trace_id : String <<FK>>
+  * created_at : DateTime
+}
+
+entity "observability_saved_queries" as observability_saved_queries {
+  * id : Integer <<PK>>
+  --
+  * name : String
+    description : Text
+  * user_email : String
+  * filter_config : JSON
+  * is_shared : Boolean
+  * created_at : DateTime
+  * updated_at : DateTime
+    last_used_at : DateTime
+  * use_count : Integer
+}
+
+entity "tool_metrics" as tool_metrics {
+  * id : int <<PK>>
+  --
+  * tool_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "resource_metrics" as resource_metrics {
+  * id : int <<PK>>
+  --
+  * resource_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "server_metrics" as server_metrics {
+  * id : int <<PK>>
+  --
+  * server_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "prompt_metrics" as prompt_metrics {
+  * id : int <<PK>>
+  --
+  * prompt_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "tool_metrics_hourly" as tool_metrics_hourly {
+  * id : int <<PK>>
+  --
+    tool_id : String <<FK>>
+  * tool_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+    min_response_time : Float
+    max_response_time : Float
+    avg_response_time : Float
+    p50_response_time : Float
+    p95_response_time : Float
+    p99_response_time : Float
+  * created_at : DateTime
+}
+
+entity "resource_metrics_hourly" as resource_metrics_hourly {
+  * id : int <<PK>>
+  --
+    resource_id : String <<FK>>
+  * resource_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+    min_response_time : Float
+    max_response_time : Float
+    avg_response_time : Float
+    p50_response_time : Float
+    p95_response_time : Float
+    p99_response_time : Float
+  * created_at : DateTime
+}
+
+entity "prompt_metrics_hourly" as prompt_metrics_hourly {
+  * id : int <<PK>>
+  --
+    prompt_id : String <<FK>>
+  * prompt_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+    min_response_time : Float
+    max_response_time : Float
+    avg_response_time : Float
+    p50_response_time : Float
+    p95_response_time : Float
+    p99_response_time : Float
+  * created_at : DateTime
+}
+
+entity "server_metrics_hourly" as server_metrics_hourly {
+  * id : int <<PK>>
+  --
+    server_id : String <<FK>>
+  * server_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+    min_response_time : Float
+    max_response_time : Float
+    avg_response_time : Float
+    p50_response_time : Float
+    p95_response_time : Float
+    p99_response_time : Float
+  * created_at : DateTime
+}
+
+entity "performance_snapshots" as performance_snapshots {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+  * host : String
+    worker_id : String
+  * metrics_json : JSON
+  * created_at : DateTime
+}
+
+entity "performance_aggregates" as performance_aggregates {
+  * id : Integer <<PK>>
+  --
+  * period_start : DateTime
+  * period_end : DateTime
+  * period_type : String
+    host : String
+  * requests_total : Integer
+  * requests_2xx : Integer
+  * requests_4xx : Integer
+  * requests_5xx : Integer
+  * avg_response_time_ms : Float
+  * p95_response_time_ms : Float
+  * peak_requests_per_second : Float
+  * avg_cpu_percent : Float
+  * avg_memory_percent : Float
+  * peak_cpu_percent : Float
+  * peak_memory_percent : Float
+  * created_at : DateTime
+}
+
+entity "performance_metrics" as performance_metrics {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+  * operation_type : String
+  * component : String
+  * request_count : Integer
+  * error_count : Integer
+  * error_rate : Float
+  * avg_duration_ms : Float
+  * min_duration_ms : Float
+  * max_duration_ms : Float
+  * p50_duration_ms : Float
+  * p95_duration_ms : Float
+  * p99_duration_ms : Float
+  * window_start : DateTime
+  * window_end : DateTime
+  * window_duration_seconds : Integer
+    metric_metadata : JSON
+}
+
+entity "structured_log_entries" as structured_log_entries {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+    correlation_id : String
+    request_id : String
+  * level : String
+  * component : String
+  * message : Text
+    logger : String
+    user_id : String
+    user_email : String
+    client_ip : String
+    user_agent : Text
+    request_path : String
+    request_method : String
+    duration_ms : Float
+    operation_type : String
+  * is_security_event : Boolean
+    security_severity : String
+    threat_indicators : JSON
+    context : JSON
+    error_details : JSON
+    performance_metrics : JSON
+  * hostname : String
+  * process_id : Integer
+    thread_id : Integer
+  * version : String
+  * environment : String
+    trace_id : String
+    span_id : String
+}
+
+entity "security_events" as security_events {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+  * detected_at : DateTime
+    correlation_id : String
+    log_entry_id : String <<FK>>
+  * event_type : String
+  * severity : String
+  * category : String
+    user_id : String
+    user_email : String
+  * client_ip : String
+    user_agent : Text
+  * description : Text
+    action_taken : String
+  * threat_score : Float
+  * threat_indicators : JSON
+  * failed_attempts_count : Integer
+  * resolved : Boolean
+    resolved_at : DateTime
+    resolved_by : String
+    resolution_notes : Text
+  * alert_sent : Boolean
+    alert_sent_at : DateTime
+    alert_recipients : JSON
+    context : JSON
+}
+
+entity "audit_trails" as audit_trails {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+    correlation_id : String
+    request_id : String
+  * action : String
+  * resource_type : String
+    resource_id : String
+    resource_name : String
+  * user_id : String
+    user_email : String
+    team_id : String
+    client_ip : String
+    user_agent : Text
+    request_path : String
+    request_method : String
+    old_values : JSON
+    new_values : JSON
+    changes : JSON
+    data_classification : String
+  * requires_review : Boolean
+  * success : Boolean
+    error_message : Text
+    context : JSON
+    auth_method : String
+    acting_as : String
+    delegation_chain : JSON
+}
+
+entity "migration_metadata" as migration_metadata {
+  * revision : String <<PK>>
+  * key : String <<PK>>
+  --
+    value : Text
+    created_at : DateTime
+}
+
+' relationships (declared ForeignKey targets only)
+observability_spans ||--o{ observability_events : span_id
+observability_traces ||--o{ observability_metrics : trace_id
+observability_traces ||--o{ observability_spans : trace_id
+structured_log_entries ||--o{ security_events : log_entry_id
+@enduml

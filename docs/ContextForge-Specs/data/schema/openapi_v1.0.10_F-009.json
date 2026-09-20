@@ -1,0 +1,12 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-009 \u2014 Plugin Catalog",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {},
+  "components": {
+    "schemas": {}
+  }
+}

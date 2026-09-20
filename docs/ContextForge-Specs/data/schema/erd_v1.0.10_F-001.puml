@@ -1,0 +1,305 @@
+@startuml erd_v1.0.10_F-001
+' F-001 — MCP Registry and Federation. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "gateways" as gateways {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+  * url : String
+    description : Text
+  * transport : String
+  * capabilities : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+  * status : String
+    status_message : Text
+  * registration_attempts : Integer
+    next_retry_at : DateTime
+    last_error : Text
+    lifecycle_claimed_by : String
+    lifecycle_claimed_at : DateTime
+    lifecycle_claim_expires_at : DateTime
+  * enabled : bool
+  * reachable : bool
+    last_seen : DateTime
+  * tags : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    passthrough_headers : JSON
+    add_headers : JSON
+    remove_headers : JSON
+    ca_certificate : Text
+    ca_certificate_sig : String
+    signing_algorithm : String
+    client_cert : Text
+    client_key : Text
+    auth_type : String
+    auth_value : JSON
+    auth_query_params : JSON
+    oauth_config : JSON
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+    refresh_interval_seconds : Integer
+    last_refresh_at : DateTime
+  * gateway_mode : String
+    identity_propagation : JSON
+}
+
+entity "tools" as tools {
+  * id : String <<PK>>
+  --
+  * original_name : String
+    url : String
+    original_description : Text
+    description : Text
+  * integration_type : String
+  * request_type : String
+    headers : JSON
+  * input_schema : JSON
+    output_schema : JSON
+    annotations : JSON
+    extension_metadata : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+  * enabled : bool
+  * deprecated : bool
+  * reachable : bool
+  * jsonpath_filter : Text
+  * tags : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    auth_type : String
+    auth_value : Text
+  * custom_name : String
+  * custom_name_slug : String
+    display_name : String
+    title : String
+    base_url : String
+    path_template : String
+    query_mapping : JSON
+    header_mapping : JSON
+    timeout_ms : Integer
+  * expose_passthrough : Boolean
+    allowlist : JSON
+    plugin_chain_pre : JSON
+    plugin_chain_post : JSON
+    gateway_id : ForeignKey <<FK>>
+    grpc_service_id : ForeignKey <<FK>>
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+  * _computed_name : str
+}
+
+entity "resources" as resources {
+  * id : String <<PK>>
+  --
+  * uri : String
+  * name : String
+    description : Text
+    title : String
+    mime_type : String
+    size : Integer
+    uri_template : Text
+  * created_at : DateTime
+  * updated_at : DateTime
+  * enabled : bool
+  * tags : JSON
+    extension_metadata : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    text_content : Text
+    binary_content : Optional
+    gateway_id : ForeignKey <<FK>>
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+}
+
+entity "prompts" as prompts {
+  * id : String <<PK>>
+  --
+  * original_name : String
+  * custom_name : String
+  * custom_name_slug : String
+    display_name : String
+    title : String
+  * name : String
+    description : Text
+  * template : Text
+  * argument_schema : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+  * enabled : bool
+  * tags : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    gateway_id : ForeignKey <<FK>>
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+}
+
+entity "servers" as servers {
+  * id : String <<PK>>
+  --
+  * name : String
+    description : Text
+    icon : String
+  * created_at : DateTime
+  * updated_at : DateTime
+  * enabled : bool
+  * tags : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+  * oauth_enabled : Boolean
+    oauth_config : JSON
+}
+
+entity "resource_subscriptions" as resource_subscriptions {
+  * id : int <<PK>>
+  --
+  * resource_id : ForeignKey <<FK>>
+  * subscriber_id : String
+  * created_at : DateTime
+    last_notification : DateTime
+}
+
+entity "grpc_services" as grpc_services {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+    description : Text
+  * target : String
+  * reflection_enabled : Boolean
+  * tls_enabled : Boolean
+    tls_cert_path : String
+    tls_key_path : String
+  * grpc_metadata : JSON
+  * enabled : Boolean
+  * reachable : Boolean
+  * service_count : Integer
+  * method_count : Integer
+  * discovered_services : JSON
+    last_reflection : DateTime
+  * tags : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+}
+
+entity "server_tool_association" as server_tool_association {
+  * server_id : unknown <<PK>>
+  * tool_id : unknown <<PK>>
+}
+
+entity "server_resource_association" as server_resource_association {
+  * server_id : unknown <<PK>>
+  * resource_id : unknown <<PK>>
+}
+
+entity "server_prompt_association" as server_prompt_association {
+  * server_id : unknown <<PK>>
+  * prompt_id : unknown <<PK>>
+}
+
+entity "server_interfaces" as server_interfaces {
+  * id : String <<PK>>
+  --
+  * server_id : String <<FK>>
+  * protocol : String
+  * binding : String
+    version : String
+    tenant : String
+  * enabled : Boolean
+    config : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "global_config" as global_config {
+  * id : Integer <<PK>>
+  --
+    passthrough_headers : JSON
+}
+
+' relationships (declared ForeignKey targets only)
+gateways ||--o{ prompts : gateway_id
+gateways ||--o{ resources : gateway_id
+gateways ||--o{ tools : gateway_id
+grpc_services ||--o{ tools : grpc_service_id
+prompts ||--o{ server_prompt_association : prompt_id
+resources ||--o{ resource_subscriptions : resource_id
+resources ||--o{ server_resource_association : resource_id
+servers ||--o{ server_interfaces : server_id
+servers ||--o{ server_prompt_association : server_id
+servers ||--o{ server_resource_association : server_id
+servers ||--o{ server_tool_association : server_id
+tools ||--o{ server_tool_association : tool_id
+@enduml

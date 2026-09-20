@@ -1,0 +1,115 @@
+{
+  "a2a_agents": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "slug": "OPEN",
+      "endpoint_url": "OPEN",
+      "agent_type": "OPEN",
+      "protocol_version": "OPEN",
+      "capabilities": {},
+      "config": {},
+      "enabled": false,
+      "reachable": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "tags": {},
+      "version": 0,
+      "visibility": "OPEN"
+    }
+  ],
+  "a2a_tasks": [
+    {
+      "id": "OPEN",
+      "a2a_agent_id": "OPEN",
+      "task_id": "OPEN",
+      "state": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "a2a_agent_auth": [
+    {
+      "id": "OPEN",
+      "a2a_agent_id": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "a2a_push_notification_configs": [
+    {
+      "id": "OPEN",
+      "a2a_agent_id": "OPEN",
+      "task_id": "OPEN",
+      "webhook_url": "OPEN",
+      "enabled": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "a2a_task_events": [
+    {
+      "id": "OPEN",
+      "task_id": "OPEN",
+      "event_id": "OPEN",
+      "sequence": 0,
+      "event_type": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "a2a_agent_metrics": [
+    {
+      "id": 0,
+      "a2a_agent_id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "response_time": 0,
+      "is_success": false,
+      "interaction_type": "OPEN"
+    }
+  ],
+  "a2a_agent_metrics_hourly": [
+    {
+      "id": 0,
+      "agent_name": "OPEN",
+      "hour_start": "1970-01-01T00:00:00Z",
+      "interaction_type": "OPEN",
+      "total_count": 0,
+      "success_count": 0,
+      "failure_count": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "server_task_mappings": [
+    {
+      "id": "OPEN",
+      "server_id": "OPEN",
+      "server_task_id": "OPEN",
+      "agent_id": "OPEN",
+      "agent_task_id": "OPEN",
+      "status": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "a2a_agent_plugin_bindings": [
+    {
+      "id": "OPEN",
+      "team_id": "OPEN",
+      "agent_name": "OPEN",
+      "plugin_id": "OPEN",
+      "mode": "OPEN",
+      "priority": 0,
+      "config": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "created_by": "OPEN",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "updated_by": "OPEN"
+    }
+  ],
+  "server_a2a_association": [
+    {
+      "server_id": "OPEN",
+      "a2a_agent_id": "OPEN"
+    }
+  ]
+}

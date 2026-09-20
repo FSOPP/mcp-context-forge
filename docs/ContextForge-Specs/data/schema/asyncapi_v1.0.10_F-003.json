@@ -1,0 +1,16 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ContextForge F-003 \u2014 Identity, Teams and Access Control",
+    "version": "v1.0.10",
+    "description": "Channel names are literal topic strings found in this feature's files. Payload shapes were not extracted; every one is OPEN."
+  },
+  "channels": {
+    "token-exchange": {
+      "description": "message channel, role: declared, unused",
+      "x-source": "mcpgateway/routers/oauth_router.py:58",
+      "x-extraction-confidence": "high"
+    }
+  },
+  "operations": {}
+}

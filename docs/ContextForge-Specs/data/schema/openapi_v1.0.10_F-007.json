@@ -1,0 +1,133 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-007 \u2014 Plugin Framework and Tool Operations",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {
+    "/plugins": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/plugins.py:29",
+        "x-source": "mcpgateway/routers/plugins.py:29",
+        "x-mounts": [
+          "/plugins",
+          "/v1/plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/toolops/enrichment/enrich_tool": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:144",
+        "x-source": "mcpgateway/routers/toolops_router.py:144",
+        "x-mounts": [
+          "/toolops/enrichment/enrich_tool",
+          "/v1/toolops/enrichment/enrich_tool"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/toolops/validation/execute_tool_nl_testcases": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:108",
+        "x-source": "mcpgateway/routers/toolops_router.py:108",
+        "x-mounts": [
+          "/toolops/validation/execute_tool_nl_testcases",
+          "/v1/toolops/validation/execute_tool_nl_testcases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/toolops/validation/generate_testcases": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:66",
+        "x-source": "mcpgateway/routers/toolops_router.py:66",
+        "x-mounts": [
+          "/toolops/validation/generate_testcases",
+          "/v1/toolops/validation/generate_testcases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/plugins": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/plugins.py:29",
+        "x-source": "mcpgateway/routers/plugins.py:29",
+        "x-mounts": [
+          "/plugins",
+          "/v1/plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/toolops/enrichment/enrich_tool": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:144",
+        "x-source": "mcpgateway/routers/toolops_router.py:144",
+        "x-mounts": [
+          "/toolops/enrichment/enrich_tool",
+          "/v1/toolops/enrichment/enrich_tool"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/toolops/validation/execute_tool_nl_testcases": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:108",
+        "x-source": "mcpgateway/routers/toolops_router.py:108",
+        "x-mounts": [
+          "/toolops/validation/execute_tool_nl_testcases",
+          "/v1/toolops/validation/execute_tool_nl_testcases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/toolops/validation/generate_testcases": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/toolops_router.py:66",
+        "x-source": "mcpgateway/routers/toolops_router.py:66",
+        "x-mounts": [
+          "/toolops/validation/generate_testcases",
+          "/v1/toolops/validation/generate_testcases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

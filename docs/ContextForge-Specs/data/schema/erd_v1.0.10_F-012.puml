@@ -1,0 +1,9 @@
+@startuml erd_v1.0.10_F-012
+' F-012 — Deployment and Operations. This feature owns no persisted entity.
+hide circle
+
+note as N
+  F-012 stores nothing of its own.
+  See data-erd_v1.0.10_F-012.md for what it reads instead.
+end note
+@enduml

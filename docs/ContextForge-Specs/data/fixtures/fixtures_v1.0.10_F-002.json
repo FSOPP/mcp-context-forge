@@ -1,0 +1,27 @@
+{
+  "mcp_sessions": [
+    {
+      "session_id": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "last_accessed": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "mcp_messages": [
+    {
+      "id": 0,
+      "session_id": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "last_accessed": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "mcp_app_sessions": [
+    {
+      "id": "OPEN",
+      "mcp_session_id": "OPEN",
+      "user_email": "OPEN",
+      "resource_uri": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "expires_at": "1970-01-01T00:00:00Z"
+    }
+  ]
+}

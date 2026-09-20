@@ -1,0 +1,348 @@
+@startuml erd_v1.0.10_F-003
+' F-003 — Identity, Teams and Access Control. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "email_users" as email_users {
+  * id : String <<PK>>
+  --
+  * email : String
+    password_hash : String
+    full_name : String
+  * is_admin : Boolean
+    admin_origin : String
+  * is_active : Boolean
+    email_verified_at : DateTime
+  * auth_provider : String
+  * password_hash_type : String
+  * failed_login_attempts : Integer
+    locked_until : DateTime
+  * password_change_required : Boolean
+    password_changed_at : DateTime
+  * created_at : DateTime
+  * updated_at : DateTime
+    last_login : DateTime
+}
+
+entity "email_teams" as email_teams {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+    description : Text
+  * created_by : String <<FK>>
+  * is_personal : Boolean
+  * visibility : String
+    max_members : Integer
+  * created_at : DateTime
+  * updated_at : DateTime
+  * is_active : Boolean
+}
+
+entity "email_team_members" as email_team_members {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+  * role : String
+  * joined_at : DateTime
+    invited_by : String <<FK>>
+  * is_active : Boolean
+    grant_source : String
+}
+
+entity "email_team_member_history" as email_team_member_history {
+  * id : String <<PK>>
+  --
+  * team_member_id : String <<FK>>
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+  * role : String
+  * action : String
+    action_by : String <<FK>>
+  * action_timestamp : DateTime
+}
+
+entity "email_team_invitations" as email_team_invitations {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * email : String
+  * role : String
+  * invited_by : String <<FK>>
+  * invited_at : DateTime
+  * expires_at : DateTime
+  * token : String
+  * is_active : Boolean
+}
+
+entity "email_team_join_requests" as email_team_join_requests {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+    message : Text
+  * status : String
+  * requested_at : DateTime
+  * expires_at : DateTime
+    reviewed_at : DateTime
+    reviewed_by : String <<FK>>
+    notes : Text
+}
+
+entity "email_auth_events" as email_auth_events {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+    user_email : String
+  * event_type : String
+  * success : Boolean
+    ip_address : String
+    user_agent : Text
+    failure_reason : String
+    details : Text
+}
+
+entity "roles" as roles {
+  * id : String <<PK>>
+  --
+  * name : String
+    description : Text
+  * scope : String
+  * permissions : JSON
+    inherits_from : String <<FK>>
+  * created_by : String <<FK>>
+  * is_system_role : Boolean
+  * is_active : Boolean
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "user_roles" as user_roles {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * role_id : String <<FK>>
+  * scope : String
+    scope_id : String
+  * granted_by : String <<FK>>
+  * granted_at : DateTime
+    expires_at : DateTime
+  * is_active : Boolean
+    grant_source : String
+}
+
+entity "permission_audit_log" as permission_audit_log {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+    user_email : String
+  * permission : String
+    resource_type : String
+    resource_id : String
+    team_id : String
+  * granted : Boolean
+    roles_checked : JSON
+    ip_address : String
+    user_agent : Text
+}
+
+entity "email_api_tokens" as email_api_tokens {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+    team_id : String <<FK>>
+  * name : String
+  * jti : String
+  * token_hash : String
+    server_id : String <<FK>>
+    resource_scopes : JSON
+    ip_restrictions : JSON
+    time_restrictions : JSON
+    usage_limits : JSON
+  * created_at : DateTime
+    expires_at : DateTime
+    last_used : DateTime
+  * is_active : Boolean
+    description : Text
+    tags : JSON
+}
+
+entity "token_usage_logs" as token_usage_logs {
+  * id : Integer <<PK>>
+  --
+  * token_jti : String
+  * user_email : String
+  * timestamp : DateTime
+    endpoint : String
+    method : String
+    ip_address : String
+    user_agent : Text
+    status_code : Integer
+    response_time_ms : Integer
+  * blocked : Boolean
+    block_reason : String
+}
+
+entity "token_revocations" as token_revocations {
+  * jti : String <<PK>>
+  --
+  * revoked_at : DateTime
+  * revoked_by : String <<FK>>
+    reason : String
+    token_expiry : DateTime
+    last_activity : DateTime
+}
+
+entity "oauth_tokens" as oauth_tokens {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * user_id : String
+  * app_user_email : String <<FK>>
+  * access_token : EncryptedText
+    refresh_token : EncryptedText
+  * token_type : String
+    expires_at : DateTime
+    scopes : JSON
+    learned_aud : JSON
+    learned_iss : String
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "oauth_states" as oauth_states {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * state : String
+    code_verifier : String
+    app_user_email : String
+    redirect_uri : String
+    team_id : String
+  * expires_at : DateTime
+  * used : Boolean
+  * created_at : DateTime
+}
+
+entity "registered_oauth_clients" as registered_oauth_clients {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * issuer : String
+  * client_id : String
+    client_secret_encrypted : Text
+  * redirect_uris : Text
+  * grant_types : Text
+    response_types : Text
+    scope : String
+  * token_endpoint_auth_method : String
+    registration_client_uri : String
+    registration_access_token_encrypted : Text
+  * created_at : DateTime
+    expires_at : DateTime
+  * is_active : Boolean
+}
+
+entity "sso_providers" as sso_providers {
+  * id : String <<PK>>
+  --
+  * name : String
+  * display_name : String
+  * provider_type : String
+  * is_enabled : Boolean
+  * client_id : String
+  * client_secret_encrypted : Text
+  * authorization_url : String
+  * token_url : String
+  * userinfo_url : String
+    issuer : String
+    jwks_uri : String
+    trusted_for_api_auth : Boolean
+    api_audience : String
+  * trusted_domains : JSON
+  * scope : String
+  * auto_create_users : Boolean
+  * team_mapping : JSON
+  * provider_metadata : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "sso_auth_sessions" as sso_auth_sessions {
+  * id : String <<PK>>
+  --
+  * provider_id : String <<FK>>
+  * state : String
+    code_verifier : String
+    nonce : String
+  * redirect_uri : String
+  * expires_at : DateTime
+    user_email : String <<FK>>
+  * created_at : DateTime
+}
+
+entity "password_reset_tokens" as password_reset_tokens {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * token_hash : String
+  * expires_at : DateTime
+    used_at : DateTime
+  * created_at : DateTime
+    ip_address : String
+    user_agent : Text
+}
+
+entity "password_history" as password_history {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * password_hash : Text
+  * changed_at : DateTime
+}
+
+entity "pending_user_approvals" as pending_user_approvals {
+  * id : String <<PK>>
+  --
+  * email : String
+  * full_name : String
+  * auth_provider : String
+    sso_metadata : JSON
+  * requested_at : DateTime
+  * expires_at : DateTime
+    approved_by : String <<FK>>
+    approved_at : DateTime
+  * status : String
+    rejection_reason : Text
+    admin_notes : Text
+}
+
+' relationships (declared ForeignKey targets only)
+email_team_members ||--o{ email_team_member_history : team_member_id
+email_teams ||--o{ email_api_tokens : team_id
+email_teams ||--o{ email_team_invitations : team_id
+email_teams ||--o{ email_team_join_requests : team_id
+email_teams ||--o{ email_team_member_history : team_id
+email_teams ||--o{ email_team_members : team_id
+email_users ||--o{ email_api_tokens : user_email
+email_users ||--o{ email_team_invitations : invited_by
+email_users ||--o{ email_team_join_requests : reviewed_by
+email_users ||--o{ email_team_join_requests : user_email
+email_users ||--o{ email_team_member_history : action_by
+email_users ||--o{ email_team_member_history : user_email
+email_users ||--o{ email_team_members : invited_by
+email_users ||--o{ email_team_members : user_email
+email_users ||--o{ email_teams : created_by
+email_users ||--o{ oauth_tokens : app_user_email
+email_users ||--o{ password_history : user_email
+email_users ||--o{ password_reset_tokens : user_email
+email_users ||--o{ pending_user_approvals : approved_by
+email_users ||--o{ roles : created_by
+email_users ||--o{ sso_auth_sessions : user_email
+email_users ||--o{ token_revocations : revoked_by
+email_users ||--o{ user_roles : granted_by
+email_users ||--o{ user_roles : user_email
+roles ||--o{ user_roles : role_id
+sso_providers ||--o{ sso_auth_sessions : provider_id
+@enduml

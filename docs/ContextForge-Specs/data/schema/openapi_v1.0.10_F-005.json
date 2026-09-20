@@ -1,0 +1,423 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-005 \u2014 A2A Agent Federation",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {
+    "/a2a": {
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4890",
+        "x-source": "mcpgateway/main.py:4890",
+        "x-mounts": [
+          "/a2a",
+          "/v1/a2a"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5011",
+        "x-source": "mcpgateway/main.py:5011",
+        "x-mounts": [
+          "/a2a",
+          "/v1/a2a"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/": {
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4891",
+        "x-source": "mcpgateway/main.py:4891",
+        "x-mounts": [
+          "/a2a/",
+          "/v1/a2a/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5012",
+        "x-source": "mcpgateway/main.py:5012",
+        "x-mounts": [
+          "/a2a/",
+          "/v1/a2a/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/invoke": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5406",
+        "x-source": "mcpgateway/main.py:5406",
+        "x-mounts": [
+          "/a2a/invoke",
+          "/v1/a2a/invoke"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/{agent_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/main.py:5220",
+        "x-source": "mcpgateway/main.py:5220",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4970",
+        "x-source": "mcpgateway/main.py:4970",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "put": {
+        "summary": "Route handler at mcpgateway/main.py:5098",
+        "x-source": "mcpgateway/main.py:5098",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/{agent_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5157",
+        "x-source": "mcpgateway/main.py:5157",
+        "x-mounts": [
+          "/a2a/{agent_id}/state",
+          "/v1/a2a/{agent_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/{agent_id}/toggle": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5194",
+        "x-source": "mcpgateway/main.py:5194",
+        "x-mounts": [
+          "/a2a/{agent_id}/toggle",
+          "/v1/a2a/{agent_id}/toggle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/{agent_name}/invoke": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5358",
+        "x-source": "mcpgateway/main.py:5358",
+        "x-mounts": [
+          "/a2a/{agent_name}/invoke",
+          "/v1/a2a/{agent_name}/invoke"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/a2a/{agent_name}/jsonrpc": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5459",
+        "x-source": "mcpgateway/main.py:5459",
+        "x-mounts": [
+          "/a2a/{agent_name}/jsonrpc",
+          "/v1/a2a/{agent_name}/jsonrpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a": {
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4890",
+        "x-source": "mcpgateway/main.py:4890",
+        "x-mounts": [
+          "/a2a",
+          "/v1/a2a"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5011",
+        "x-source": "mcpgateway/main.py:5011",
+        "x-mounts": [
+          "/a2a",
+          "/v1/a2a"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a-agents/plugin-bindings": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/a2a_agent_plugin_bindings.py:224",
+        "x-source": "mcpgateway/routers/a2a_agent_plugin_bindings.py:224",
+        "x-mounts": [
+          "/v1/a2a-agents/plugin-bindings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/a2a_agent_plugin_bindings.py:146",
+        "x-source": "mcpgateway/routers/a2a_agent_plugin_bindings.py:146",
+        "x-mounts": [
+          "/v1/a2a-agents/plugin-bindings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/a2a_agent_plugin_bindings.py:80",
+        "x-source": "mcpgateway/routers/a2a_agent_plugin_bindings.py:80",
+        "x-mounts": [
+          "/v1/a2a-agents/plugin-bindings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a-agents/plugin-bindings/{binding_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/a2a_agent_plugin_bindings.py:267",
+        "x-source": "mcpgateway/routers/a2a_agent_plugin_bindings.py:267",
+        "x-mounts": [
+          "/v1/a2a-agents/plugin-bindings/{binding_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a-agents/plugin-bindings/{team_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/a2a_agent_plugin_bindings.py:184",
+        "x-source": "mcpgateway/routers/a2a_agent_plugin_bindings.py:184",
+        "x-mounts": [
+          "/v1/a2a-agents/plugin-bindings/{team_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/": {
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4891",
+        "x-source": "mcpgateway/main.py:4891",
+        "x-mounts": [
+          "/a2a/",
+          "/v1/a2a/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5012",
+        "x-source": "mcpgateway/main.py:5012",
+        "x-mounts": [
+          "/a2a/",
+          "/v1/a2a/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/invoke": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5406",
+        "x-source": "mcpgateway/main.py:5406",
+        "x-mounts": [
+          "/a2a/invoke",
+          "/v1/a2a/invoke"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/{agent_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/main.py:5220",
+        "x-source": "mcpgateway/main.py:5220",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/main.py:4970",
+        "x-source": "mcpgateway/main.py:4970",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "put": {
+        "summary": "Route handler at mcpgateway/main.py:5098",
+        "x-source": "mcpgateway/main.py:5098",
+        "x-mounts": [
+          "/a2a/{agent_id}",
+          "/v1/a2a/{agent_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/{agent_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5157",
+        "x-source": "mcpgateway/main.py:5157",
+        "x-mounts": [
+          "/a2a/{agent_id}/state",
+          "/v1/a2a/{agent_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/{agent_id}/toggle": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5194",
+        "x-source": "mcpgateway/main.py:5194",
+        "x-mounts": [
+          "/a2a/{agent_id}/toggle",
+          "/v1/a2a/{agent_id}/toggle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/{agent_name}/invoke": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5358",
+        "x-source": "mcpgateway/main.py:5358",
+        "x-mounts": [
+          "/a2a/{agent_name}/invoke",
+          "/v1/a2a/{agent_name}/invoke"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/a2a/{agent_name}/jsonrpc": {
+      "post": {
+        "summary": "Route handler at mcpgateway/main.py:5459",
+        "x-source": "mcpgateway/main.py:5459",
+        "x-mounts": [
+          "/a2a/{agent_name}/jsonrpc",
+          "/v1/a2a/{agent_name}/jsonrpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

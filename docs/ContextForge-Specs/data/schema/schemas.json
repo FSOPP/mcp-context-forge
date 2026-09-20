@@ -1,0 +1,5430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contextforge/data/schemas.json",
+  "title": "ContextForge data model",
+  "description": "Canonical entity definitions, reversed from the code that defines them. erd_master.puml draws these entities, the OpenAPI/AsyncAPI files $ref them instead of redefining shapes, and every fixture record is validated against them by route.py. x-source on each entry is the definition site; reopen it before trusting a field.",
+  "$defs": {
+    "_alembic_tmp_email_api_tokens": {
+      "type": "object",
+      "description": "Table `_alembic_tmp_email_api_tokens`. Defined at tests/unit/mcpgateway/db/test_token_uniqueness_migration.py:83. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "tests/unit/mcpgateway/db/test_token_uniqueness_migration.py:83",
+      "x-extraction-confidence": "high",
+      "required": [
+        "hashed_key",
+        "id",
+        "name",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "hashed_key": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "a2a_agent_auth": {
+      "type": "object",
+      "description": "Table `a2a_agent_auth`. Defined at mcpgateway/db.py:5190. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5190",
+      "x-extraction-confidence": "high",
+      "required": [
+        "a2a_agent_id",
+        "created_at",
+        "id",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "auth_query_params": {
+          "type": "object"
+        },
+        "auth_type": {
+          "type": "string"
+        },
+        "auth_value": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oauth_config": {
+          "type": "object"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "a2a_agent_metrics": {
+      "type": "object",
+      "description": "Table `a2a_agent_metrics`. Defined at mcpgateway/db.py:2697. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2697",
+      "x-extraction-confidence": "high",
+      "required": [
+        "a2a_agent_id",
+        "id",
+        "interaction_type",
+        "is_success",
+        "response_time",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "interaction_type": {
+          "type": "string"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "a2a_agent_metrics_hourly": {
+      "type": "object",
+      "description": "Table `a2a_agent_metrics_hourly`. Defined at mcpgateway/db.py:2842. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2842",
+      "x-extraction-confidence": "high",
+      "required": [
+        "agent_name",
+        "created_at",
+        "failure_count",
+        "hour_start",
+        "id",
+        "interaction_type",
+        "success_count",
+        "total_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "agent_name": {
+          "type": "string"
+        },
+        "avg_response_time": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failure_count": {
+          "type": "integer"
+        },
+        "hour_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "interaction_type": {
+          "type": "string"
+        },
+        "max_response_time": {
+          "type": "number"
+        },
+        "min_response_time": {
+          "type": "number"
+        },
+        "p50_response_time": {
+          "type": "number"
+        },
+        "p95_response_time": {
+          "type": "number"
+        },
+        "p99_response_time": {
+          "type": "number"
+        },
+        "success_count": {
+          "type": "integer"
+        },
+        "total_count": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "a2a_agent_plugin_bindings": {
+      "type": "object",
+      "description": "Table `a2a_agent_plugin_bindings`. Defined at mcpgateway/db.py:7010. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:7010",
+      "x-extraction-confidence": "high",
+      "required": [
+        "agent_name",
+        "config",
+        "created_at",
+        "created_by",
+        "id",
+        "mode",
+        "plugin_id",
+        "priority",
+        "team_id",
+        "updated_at",
+        "updated_by"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "agent_name": {
+          "type": "string"
+        },
+        "binding_reference_id": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "on_error": {
+          "type": "string"
+        },
+        "plugin_id": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_by": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id"
+      }
+    },
+    "a2a_agents": {
+      "type": "object",
+      "description": "Table `a2a_agents`. Defined at mcpgateway/db.py:4923. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4923",
+      "x-extraction-confidence": "high",
+      "required": [
+        "agent_type",
+        "capabilities",
+        "config",
+        "created_at",
+        "enabled",
+        "endpoint_url",
+        "id",
+        "name",
+        "protocol_version",
+        "reachable",
+        "slug",
+        "tags",
+        "updated_at",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "agent_type": {
+          "type": "string"
+        },
+        "auth_query_params": {
+          "type": "object"
+        },
+        "auth_type": {
+          "type": "string"
+        },
+        "auth_value": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "object"
+        },
+        "config": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "endpoint_url": {
+          "type": "string"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "icon_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "last_interaction": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oauth_config": {
+          "type": "object"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "passthrough_headers": {
+          "type": "object"
+        },
+        "protocol_version": {
+          "type": "string"
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "tenant": {
+          "type": "string"
+        },
+        "tool_id": {
+          "type": "string",
+          "description": "foreign key -> tools.id"
+        },
+        "uaid": {
+          "type": "string"
+        },
+        "uaid_native_id": {
+          "type": "string"
+        },
+        "uaid_proto": {
+          "type": "string"
+        },
+        "uaid_registry": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id",
+        "tool_id": "tools.id"
+      }
+    },
+    "a2a_push_notification_configs": {
+      "type": "object",
+      "description": "Table `a2a_push_notification_configs`. Defined at mcpgateway/db.py:5211. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5211",
+      "x-extraction-confidence": "high",
+      "required": [
+        "a2a_agent_id",
+        "created_at",
+        "enabled",
+        "id",
+        "task_id",
+        "updated_at",
+        "webhook_url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "auth_token": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "webhook_url": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "a2a_task_events": {
+      "type": "object",
+      "description": "Table `a2a_task_events`. Defined at mcpgateway/db.py:5233. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5233",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "event_id",
+        "event_type",
+        "id",
+        "sequence",
+        "task_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "sequence": {
+          "type": "integer"
+        },
+        "task_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "a2a_tasks": {
+      "type": "object",
+      "description": "Table `a2a_tasks`. Defined at mcpgateway/db.py:5117. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5117",
+      "x-extraction-confidence": "high",
+      "required": [
+        "a2a_agent_id",
+        "created_at",
+        "id",
+        "state",
+        "task_id",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_error": {
+          "type": "string"
+        },
+        "latest_message": {
+          "type": "object"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "state": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "audit_trails": {
+      "type": "object",
+      "description": "Table `audit_trails`. Defined at mcpgateway/db.py:6645. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6645",
+      "x-extraction-confidence": "high",
+      "required": [
+        "action",
+        "id",
+        "requires_review",
+        "resource_type",
+        "success",
+        "timestamp",
+        "user_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "acting_as": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "auth_method": {
+          "type": "string"
+        },
+        "changes": {
+          "type": "object"
+        },
+        "client_ip": {
+          "type": "string"
+        },
+        "context": {
+          "type": "object"
+        },
+        "correlation_id": {
+          "type": "string"
+        },
+        "data_classification": {
+          "type": "string"
+        },
+        "delegation_chain": {
+          "type": "object"
+        },
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "new_values": {
+          "type": "object"
+        },
+        "old_values": {
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "request_method": {
+          "type": "string"
+        },
+        "request_path": {
+          "type": "string"
+        },
+        "requires_review": {
+          "type": "boolean"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "resource_name": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "email_api_tokens": {
+      "type": "object",
+      "description": "Table `email_api_tokens`. Defined at mcpgateway/db.py:5486. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5486",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "id",
+        "is_active",
+        "jti",
+        "name",
+        "token_hash",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "ip_restrictions": {
+          "type": "object"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "jti": {
+          "type": "string"
+        },
+        "last_used": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_scopes": {
+          "type": "object"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "time_restrictions": {
+          "type": "object"
+        },
+        "token_hash": {
+          "type": "string"
+        },
+        "usage_limits": {
+          "type": "object"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "user_email": "email_users.email",
+        "team_id": "email_teams.id",
+        "server_id": "servers.id"
+      }
+    },
+    "email_auth_events": {
+      "type": "object",
+      "description": "Table `email_auth_events`. Defined at mcpgateway/db.py:1768. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1768",
+      "x-extraction-confidence": "high",
+      "required": [
+        "event_type",
+        "id",
+        "success",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "details": {
+          "type": "string"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "failure_reason": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "email_team_invitations": {
+      "type": "object",
+      "description": "Table `email_team_invitations`. Defined at mcpgateway/db.py:2255. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2255",
+      "x-extraction-confidence": "high",
+      "required": [
+        "email",
+        "expires_at",
+        "id",
+        "invited_at",
+        "invited_by",
+        "is_active",
+        "role",
+        "team_id",
+        "token"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "invited_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "invited_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "role": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id",
+        "invited_by": "email_users.email"
+      }
+    },
+    "email_team_join_requests": {
+      "type": "object",
+      "description": "Table `email_team_join_requests`. Defined at mcpgateway/db.py:2358. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2358",
+      "x-extraction-confidence": "high",
+      "required": [
+        "expires_at",
+        "id",
+        "requested_at",
+        "status",
+        "team_id",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "requested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewed_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "status": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id",
+        "user_email": "email_users.email",
+        "reviewed_by": "email_users.email"
+      }
+    },
+    "email_team_member_history": {
+      "type": "object",
+      "description": "Table `email_team_member_history`. Defined at mcpgateway/db.py:2187. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2187",
+      "x-extraction-confidence": "high",
+      "required": [
+        "action",
+        "action_timestamp",
+        "id",
+        "role",
+        "team_id",
+        "team_member_id",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "action_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "action_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "team_member_id": {
+          "type": "string",
+          "description": "foreign key -> email_team_members.id"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_member_id": "email_team_members.id",
+        "team_id": "email_teams.id",
+        "user_email": "email_users.email",
+        "action_by": "email_users.email"
+      }
+    },
+    "email_team_members": {
+      "type": "object",
+      "description": "Table `email_team_members`. Defined at mcpgateway/db.py:2119. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2119",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_active",
+        "joined_at",
+        "role",
+        "team_id",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "grant_source": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "invited_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "joined_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "role": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id",
+        "user_email": "email_users.email",
+        "invited_by": "email_users.email"
+      }
+    },
+    "email_teams": {
+      "type": "object",
+      "description": "Table `email_teams`. Defined at mcpgateway/db.py:1976. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1976",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "created_by",
+        "id",
+        "is_active",
+        "is_personal",
+        "name",
+        "slug",
+        "updated_at",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "is_personal": {
+          "type": "boolean"
+        },
+        "max_members": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "created_by": "email_users.email"
+      }
+    },
+    "email_users": {
+      "type": "object",
+      "description": "Table `email_users`. Defined at mcpgateway/db.py:1516. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1516",
+      "x-extraction-confidence": "high",
+      "required": [
+        "auth_provider",
+        "created_at",
+        "email",
+        "failed_login_attempts",
+        "id",
+        "is_active",
+        "is_admin",
+        "password_change_required",
+        "password_hash_type",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "admin_origin": {
+          "type": "string"
+        },
+        "auth_provider": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "type": "string"
+        },
+        "email_verified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failed_login_attempts": {
+          "type": "integer"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "is_admin": {
+          "type": "boolean"
+        },
+        "last_login": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "locked_until": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "password_change_required": {
+          "type": "boolean"
+        },
+        "password_changed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "password_hash": {
+          "type": "string"
+        },
+        "password_hash_type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "fake_items": {
+      "type": "object",
+      "description": "Table `fake_items`. Defined at tests/unit/mcpgateway/services/test_base_service.py:34. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "tests/unit/mcpgateway/services/test_base_service.py:34",
+      "x-extraction-confidence": "low",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "gateways": {
+      "type": "object",
+      "description": "Table `gateways`. Defined at mcpgateway/db.py:4710. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4710",
+      "x-extraction-confidence": "high",
+      "required": [
+        "capabilities",
+        "created_at",
+        "enabled",
+        "gateway_mode",
+        "id",
+        "name",
+        "reachable",
+        "registration_attempts",
+        "slug",
+        "status",
+        "tags",
+        "transport",
+        "updated_at",
+        "url",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "add_headers": {
+          "type": "object"
+        },
+        "auth_query_params": {
+          "type": "object"
+        },
+        "auth_type": {
+          "type": "string"
+        },
+        "auth_value": {
+          "type": "object"
+        },
+        "ca_certificate": {
+          "type": "string"
+        },
+        "ca_certificate_sig": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "object"
+        },
+        "client_cert": {
+          "type": "string"
+        },
+        "client_key": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_mode": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identity_propagation": {
+          "type": "object"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "last_error": {
+          "type": "string"
+        },
+        "last_refresh_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_seen": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lifecycle_claim_expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lifecycle_claimed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lifecycle_claimed_by": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "next_retry_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "oauth_config": {
+          "type": "object"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "passthrough_headers": {
+          "type": "object"
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "refresh_interval_seconds": {
+          "type": "integer"
+        },
+        "registration_attempts": {
+          "type": "integer"
+        },
+        "remove_headers": {
+          "type": "object"
+        },
+        "signing_algorithm": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "status_message": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "transport": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id"
+      }
+    },
+    "global_config": {
+      "type": "object",
+      "description": "Table `global_config`. Defined at mcpgateway/db.py:2571. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2571",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "passthrough_headers": {
+          "type": "object"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "grpc_services": {
+      "type": "object",
+      "description": "Table `grpc_services`. Defined at mcpgateway/db.py:5260. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5260",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "discovered_services",
+        "enabled",
+        "grpc_metadata",
+        "id",
+        "method_count",
+        "name",
+        "reachable",
+        "reflection_enabled",
+        "service_count",
+        "slug",
+        "tags",
+        "target",
+        "tls_enabled",
+        "updated_at",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "discovered_services": {
+          "type": "object"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "grpc_metadata": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "last_reflection": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "method_count": {
+          "type": "integer"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "reflection_enabled": {
+          "type": "boolean"
+        },
+        "service_count": {
+          "type": "integer"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "target": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "tls_cert_path": {
+          "type": "string"
+        },
+        "tls_enabled": {
+          "type": "boolean"
+        },
+        "tls_key_path": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id"
+      }
+    },
+    "llm_models": {
+      "type": "object",
+      "description": "Table `llm_models`. Defined at mcpgateway/db.py:6587. Owned by: F-006 LLM Gateway and Chat. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6587",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "deprecated",
+        "enabled",
+        "id",
+        "model_id",
+        "model_name",
+        "provider_id",
+        "supports_chat",
+        "supports_function_calling",
+        "supports_streaming",
+        "supports_vision",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "context_window": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "max_output_tokens": {
+          "type": "integer"
+        },
+        "model_alias": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "model_name": {
+          "type": "string"
+        },
+        "provider_id": {
+          "type": "string",
+          "description": "foreign key -> llm_providers.id"
+        },
+        "supports_chat": {
+          "type": "boolean"
+        },
+        "supports_function_calling": {
+          "type": "boolean"
+        },
+        "supports_streaming": {
+          "type": "boolean"
+        },
+        "supports_vision": {
+          "type": "boolean"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "provider_id": "llm_providers.id"
+      }
+    },
+    "llm_providers": {
+      "type": "object",
+      "description": "Table `llm_providers`. Defined at mcpgateway/db.py:6504. Owned by: F-006 LLM Gateway and Chat. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6504",
+      "x-extraction-confidence": "high",
+      "required": [
+        "config",
+        "created_at",
+        "default_temperature",
+        "enabled",
+        "health_status",
+        "id",
+        "name",
+        "plugin_ids",
+        "provider_type",
+        "slug",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "api_base": {
+          "type": "string"
+        },
+        "api_key": {
+          "type": "string"
+        },
+        "api_version": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "default_max_tokens": {
+          "type": "integer"
+        },
+        "default_model": {
+          "type": "string"
+        },
+        "default_temperature": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "health_status": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_health_check": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "plugin_ids": {
+          "type": "object"
+        },
+        "provider_type": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "m1": {
+      "type": "object",
+      "description": "Table `m1`. Defined at tests/unit/mcpgateway/routers/test_llm_config_router.py:244. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "tests/unit/mcpgateway/routers/test_llm_config_router.py:244",
+      "x-extraction-confidence": "low",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "mcp_app_sessions": {
+      "type": "object",
+      "description": "Table `mcp_app_sessions`. Defined at mcpgateway/db.py:4036. Owned by: F-002 MCP Protocol Serving and Transports. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4036",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "expires_at",
+        "id",
+        "mcp_session_id",
+        "resource_uri",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mcp_session_id": {
+          "type": "string"
+        },
+        "resource_uri": {
+          "type": "string"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "token_teams": {
+          "type": "object"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id"
+      }
+    },
+    "mcp_messages": {
+      "type": "object",
+      "description": "Table `mcp_messages`. Defined at mcpgateway/db.py:5340. Owned by: F-002 MCP Protocol Serving and Transports. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5340",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "id",
+        "last_accessed",
+        "session_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "last_accessed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "message": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string",
+          "description": "foreign key -> mcp_sessions.session_id"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "session_id": "mcp_sessions.session_id"
+      }
+    },
+    "mcp_sessions": {
+      "type": "object",
+      "description": "Table `mcp_sessions`. Defined at mcpgateway/db.py:5327. Owned by: F-002 MCP Protocol Serving and Transports. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5327",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "last_accessed",
+        "session_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "data": {
+          "type": "string"
+        },
+        "last_accessed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "session_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "session_id"
+      ]
+    },
+    "migration_metadata": {
+      "type": "object",
+      "description": "Table `migration_metadata`. Defined at mcpgateway/db.py:1156. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1156",
+      "x-extraction-confidence": "high",
+      "required": [
+        "key",
+        "revision"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "key": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "revision",
+        "key"
+      ]
+    },
+    "missing": {
+      "type": "object",
+      "description": "Table `missing`. Defined at tests/unit/mcpgateway/routers/test_llm_config_router.py:233. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "tests/unit/mcpgateway/routers/test_llm_config_router.py:233",
+      "x-extraction-confidence": "low",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "oauth_states": {
+      "type": "object",
+      "description": "Table `oauth_states`. Defined at mcpgateway/db.py:5387. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5387",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "expires_at",
+        "gateway_id",
+        "id",
+        "state",
+        "used"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "app_user_email": {
+          "type": "string"
+        },
+        "code_verifier": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "id": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "used": {
+          "type": "boolean"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id"
+      }
+    },
+    "oauth_tokens": {
+      "type": "object",
+      "description": "Table `oauth_tokens`. Defined at mcpgateway/db.py:5354. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5354",
+      "x-extraction-confidence": "high",
+      "required": [
+        "access_token",
+        "app_user_email",
+        "created_at",
+        "gateway_id",
+        "id",
+        "token_type",
+        "updated_at",
+        "user_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "app_user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "id": {
+          "type": "string"
+        },
+        "learned_aud": {
+          "type": "object"
+        },
+        "learned_iss": {
+          "type": "string"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "object"
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id",
+        "app_user_email": "email_users.email"
+      }
+    },
+    "observability_events": {
+      "type": "object",
+      "description": "Table `observability_events`. Defined at mcpgateway/db.py:3028. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3028",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "id",
+        "name",
+        "span_id",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "exception_message": {
+          "type": "string"
+        },
+        "exception_stacktrace": {
+          "type": "string"
+        },
+        "exception_type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "span_id": {
+          "type": "string",
+          "description": "foreign key -> observability_spans.span_id"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "span_id": "observability_spans.span_id"
+      }
+    },
+    "observability_metrics": {
+      "type": "object",
+      "description": "Table `observability_metrics`. Defined at mcpgateway/db.py:3085. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3085",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "id",
+        "metric_type",
+        "name",
+        "timestamp",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "metric_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trace_id": {
+          "type": "string",
+          "description": "foreign key -> observability_traces.trace_id"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "trace_id": "observability_traces.trace_id"
+      }
+    },
+    "observability_saved_queries": {
+      "type": "object",
+      "description": "Table `observability_saved_queries`. Defined at mcpgateway/db.py:3138. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3138",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "filter_config",
+        "id",
+        "is_shared",
+        "name",
+        "updated_at",
+        "use_count",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "filter_config": {
+          "type": "object"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_shared": {
+          "type": "boolean"
+        },
+        "last_used_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "use_count": {
+          "type": "integer"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "observability_spans": {
+      "type": "object",
+      "description": "Table `observability_spans`. Defined at mcpgateway/db.py:2963. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2963",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "kind",
+        "name",
+        "span_id",
+        "start_time",
+        "status",
+        "trace_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_span_id": {
+          "type": "string",
+          "description": "foreign key -> observability_spans.span_id"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "resource_name": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "span_id": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "status_message": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string",
+          "description": "foreign key -> observability_traces.trace_id"
+        }
+      },
+      "x-primary-key": [
+        "span_id"
+      ],
+      "x-foreign-keys": {
+        "trace_id": "observability_traces.trace_id",
+        "parent_span_id": "observability_spans.span_id"
+      }
+    },
+    "observability_traces": {
+      "type": "object",
+      "description": "Table `observability_traces`. Defined at mcpgateway/db.py:2896. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2896",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "name",
+        "start_time",
+        "status",
+        "trace_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "http_method": {
+          "type": "string"
+        },
+        "http_status_code": {
+          "type": "integer"
+        },
+        "http_url": {
+          "type": "string"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_attributes": {
+          "type": "object"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "status_message": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "trace_id"
+      ]
+    },
+    "password_history": {
+      "type": "object",
+      "description": "Table `password_history`. Defined at mcpgateway/db.py:1932. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1932",
+      "x-extraction-confidence": "high",
+      "required": [
+        "changed_at",
+        "id",
+        "password_hash",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "changed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "password_hash": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "user_email": "email_users.email"
+      }
+    },
+    "password_reset_tokens": {
+      "type": "object",
+      "description": "Table `password_reset_tokens`. Defined at mcpgateway/db.py:1881. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1881",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "expires_at",
+        "id",
+        "token_hash",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "token_hash": {
+          "type": "string"
+        },
+        "used_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "user_email": "email_users.email"
+      }
+    },
+    "pending_user_approvals": {
+      "type": "object",
+      "description": "Table `pending_user_approvals`. Defined at mcpgateway/db.py:2453. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2453",
+      "x-extraction-confidence": "high",
+      "required": [
+        "auth_provider",
+        "email",
+        "expires_at",
+        "full_name",
+        "id",
+        "requested_at",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "admin_notes": {
+          "type": "string"
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "approved_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "auth_provider": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "rejection_reason": {
+          "type": "string"
+        },
+        "requested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sso_metadata": {
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "approved_by": "email_users.email"
+      }
+    },
+    "performance_aggregates": {
+      "type": "object",
+      "description": "Table `performance_aggregates`. Defined at mcpgateway/db.py:3230. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3230",
+      "x-extraction-confidence": "high",
+      "required": [
+        "avg_cpu_percent",
+        "avg_memory_percent",
+        "avg_response_time_ms",
+        "created_at",
+        "id",
+        "p95_response_time_ms",
+        "peak_cpu_percent",
+        "peak_memory_percent",
+        "peak_requests_per_second",
+        "period_end",
+        "period_start",
+        "period_type",
+        "requests_2xx",
+        "requests_4xx",
+        "requests_5xx",
+        "requests_total"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_cpu_percent": {
+          "type": "number"
+        },
+        "avg_memory_percent": {
+          "type": "number"
+        },
+        "avg_response_time_ms": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "host": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "p95_response_time_ms": {
+          "type": "number"
+        },
+        "peak_cpu_percent": {
+          "type": "number"
+        },
+        "peak_memory_percent": {
+          "type": "number"
+        },
+        "peak_requests_per_second": {
+          "type": "number"
+        },
+        "period_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "period_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "period_type": {
+          "type": "string"
+        },
+        "requests_2xx": {
+          "type": "integer"
+        },
+        "requests_4xx": {
+          "type": "integer"
+        },
+        "requests_5xx": {
+          "type": "integer"
+        },
+        "requests_total": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "performance_metrics": {
+      "type": "object",
+      "description": "Table `performance_metrics`. Defined at mcpgateway/db.py:6232. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6232",
+      "x-extraction-confidence": "high",
+      "required": [
+        "avg_duration_ms",
+        "component",
+        "error_count",
+        "error_rate",
+        "id",
+        "max_duration_ms",
+        "min_duration_ms",
+        "operation_type",
+        "p50_duration_ms",
+        "p95_duration_ms",
+        "p99_duration_ms",
+        "request_count",
+        "timestamp",
+        "window_duration_seconds",
+        "window_end",
+        "window_start"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_duration_ms": {
+          "type": "number"
+        },
+        "component": {
+          "type": "string"
+        },
+        "error_count": {
+          "type": "integer"
+        },
+        "error_rate": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "max_duration_ms": {
+          "type": "number"
+        },
+        "metric_metadata": {
+          "type": "object"
+        },
+        "min_duration_ms": {
+          "type": "number"
+        },
+        "operation_type": {
+          "type": "string"
+        },
+        "p50_duration_ms": {
+          "type": "number"
+        },
+        "p95_duration_ms": {
+          "type": "number"
+        },
+        "p99_duration_ms": {
+          "type": "number"
+        },
+        "request_count": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_duration_seconds": {
+          "type": "integer"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "performance_snapshots": {
+      "type": "object",
+      "description": "Table `performance_snapshots`. Defined at mcpgateway/db.py:3189. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3189",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "host",
+        "id",
+        "metrics_json",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "host": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "metrics_json": {
+          "type": "object"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "worker_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "permission_audit_log": {
+      "type": "object",
+      "description": "Table `permission_audit_log`. Defined at mcpgateway/db.py:1296. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1296",
+      "x-extraction-confidence": "high",
+      "required": [
+        "granted",
+        "id",
+        "permission",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "granted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "permission": {
+          "type": "string"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "roles_checked": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "prompt_metrics": {
+      "type": "object",
+      "description": "Table `prompt_metrics`. Defined at mcpgateway/db.py:2670. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2670",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "prompt_id",
+        "response_time",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "prompt_id": {
+          "type": "string",
+          "description": "foreign key -> prompts.id"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "prompt_id": "prompts.id"
+      }
+    },
+    "prompt_metrics_hourly": {
+      "type": "object",
+      "description": "Table `prompt_metrics_hourly`. Defined at mcpgateway/db.py:2792. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2792",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "failure_count",
+        "hour_start",
+        "id",
+        "prompt_name",
+        "success_count",
+        "total_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_response_time": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failure_count": {
+          "type": "integer"
+        },
+        "hour_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "max_response_time": {
+          "type": "number"
+        },
+        "min_response_time": {
+          "type": "number"
+        },
+        "p50_response_time": {
+          "type": "number"
+        },
+        "p95_response_time": {
+          "type": "number"
+        },
+        "p99_response_time": {
+          "type": "number"
+        },
+        "prompt_id": {
+          "type": "string",
+          "description": "foreign key -> prompts.id"
+        },
+        "prompt_name": {
+          "type": "string"
+        },
+        "success_count": {
+          "type": "integer"
+        },
+        "total_count": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "prompt_id": "prompts.id"
+      }
+    },
+    "prompt_metrics_old": {
+      "type": "object",
+      "description": "Table `prompt_metrics_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:722. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:722",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "prompt_id",
+        "response_time"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "prompt_id": {
+          "type": "integer"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "prompt_metrics_tmp": {
+      "type": "object",
+      "description": "Table `prompt_metrics_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:284. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:284",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "response_time"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "prompt_id": {
+          "type": "string"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "prompts": {
+      "type": "object",
+      "description": "Table `prompts`. Defined at mcpgateway/db.py:4089. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4089",
+      "x-extraction-confidence": "high",
+      "required": [
+        "argument_schema",
+        "created_at",
+        "custom_name",
+        "custom_name_slug",
+        "enabled",
+        "id",
+        "name",
+        "original_name",
+        "tags",
+        "template",
+        "updated_at",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "argument_schema": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "custom_name": {
+          "type": "string"
+        },
+        "custom_name_slug": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "original_name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "template": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id",
+        "team_id": "email_teams.id"
+      }
+    },
+    "prompts_old": {
+      "type": "object",
+      "description": "Table `prompts_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:656. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:656",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "tags",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "argument_schema": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "prompts_tmp": {
+      "type": "object",
+      "description": "Table `prompts_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:134. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:134",
+      "x-extraction-confidence": "high",
+      "required": [
+        "tags",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "argument_schema": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_oauth_clients": {
+      "type": "object",
+      "description": "Table `registered_oauth_clients`. Defined at mcpgateway/db.py:5414. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5414",
+      "x-extraction-confidence": "high",
+      "required": [
+        "client_id",
+        "created_at",
+        "gateway_id",
+        "grant_types",
+        "id",
+        "is_active",
+        "issuer",
+        "redirect_uris",
+        "token_endpoint_auth_method"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret_encrypted": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "grant_types": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "redirect_uris": {
+          "type": "string"
+        },
+        "registration_access_token_encrypted": {
+          "type": "string"
+        },
+        "registration_client_uri": {
+          "type": "string"
+        },
+        "response_types": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "token_endpoint_auth_method": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id"
+      }
+    },
+    "resource_metrics": {
+      "type": "object",
+      "description": "Table `resource_metrics`. Defined at mcpgateway/db.py:2618. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2618",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "resource_id",
+        "response_time",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "resource_id": {
+          "type": "string",
+          "description": "foreign key -> resources.id"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "resource_id": "resources.id"
+      }
+    },
+    "resource_metrics_hourly": {
+      "type": "object",
+      "description": "Table `resource_metrics_hourly`. Defined at mcpgateway/db.py:2767. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2767",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "failure_count",
+        "hour_start",
+        "id",
+        "resource_name",
+        "success_count",
+        "total_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_response_time": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failure_count": {
+          "type": "integer"
+        },
+        "hour_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "max_response_time": {
+          "type": "number"
+        },
+        "min_response_time": {
+          "type": "number"
+        },
+        "p50_response_time": {
+          "type": "number"
+        },
+        "p95_response_time": {
+          "type": "number"
+        },
+        "p99_response_time": {
+          "type": "number"
+        },
+        "resource_id": {
+          "type": "string",
+          "description": "foreign key -> resources.id"
+        },
+        "resource_name": {
+          "type": "string"
+        },
+        "success_count": {
+          "type": "integer"
+        },
+        "total_count": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "resource_id": "resources.id"
+      }
+    },
+    "resource_metrics_old": {
+      "type": "object",
+      "description": "Table `resource_metrics_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:879. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:879",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "resource_id",
+        "response_time"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "resource_id": {
+          "type": "integer"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "resource_metrics_tmp": {
+      "type": "object",
+      "description": "Table `resource_metrics_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:535. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:535",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "response_time"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "resource_subscriptions": {
+      "type": "object",
+      "description": "Table `resource_subscriptions`. Defined at mcpgateway/db.py:4022. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4022",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "id",
+        "resource_id",
+        "subscriber_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "last_notification": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resource_id": {
+          "type": "string",
+          "description": "foreign key -> resources.id"
+        },
+        "subscriber_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "resource_id": "resources.id"
+      }
+    },
+    "resource_subscriptions_old": {
+      "type": "object",
+      "description": "Table `resource_subscriptions_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:923. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:923",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "resource_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "last_notification": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resource_id": {
+          "type": "integer"
+        },
+        "subscriber_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "resource_subscriptions_tmp": {
+      "type": "object",
+      "description": "Table `resource_subscriptions_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:580. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:580",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "last_notification": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "subscriber_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "resources": {
+      "type": "object",
+      "description": "Table `resources`. Defined at mcpgateway/db.py:3690. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3690",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "enabled",
+        "id",
+        "name",
+        "tags",
+        "updated_at",
+        "uri",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "binary_content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "extension_metadata": {
+          "type": "object"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "text_content": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "uri_template": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id",
+        "team_id": "email_teams.id"
+      }
+    },
+    "resources_old": {
+      "type": "object",
+      "description": "Table `resources_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:811. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:811",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "tags",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "binary_content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "text_content": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "uri_template": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "resources_tmp": {
+      "type": "object",
+      "description": "Table `resources_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:368. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:368",
+      "x-extraction-confidence": "high",
+      "required": [
+        "tags",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "binary_content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "text_content": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "uri_template": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      }
+    },
+    "roles": {
+      "type": "object",
+      "description": "Table `roles`. Defined at mcpgateway/db.py:1170. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1170",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "created_by",
+        "id",
+        "is_active",
+        "is_system_role",
+        "name",
+        "permissions",
+        "scope",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "inherits_from": {
+          "type": "string",
+          "description": "foreign key -> roles.id"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "is_system_role": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "object"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "inherits_from": "roles.id",
+        "created_by": "email_users.email"
+      }
+    },
+    "security_events": {
+      "type": "object",
+      "description": "Table `security_events`. Defined at mcpgateway/db.py:6279. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6279",
+      "x-extraction-confidence": "high",
+      "required": [
+        "alert_sent",
+        "category",
+        "client_ip",
+        "description",
+        "detected_at",
+        "event_type",
+        "failed_attempts_count",
+        "id",
+        "resolved",
+        "severity",
+        "threat_indicators",
+        "threat_score",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "action_taken": {
+          "type": "string"
+        },
+        "alert_recipients": {
+          "type": "object"
+        },
+        "alert_sent": {
+          "type": "boolean"
+        },
+        "alert_sent_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "category": {
+          "type": "string"
+        },
+        "client_ip": {
+          "type": "string"
+        },
+        "context": {
+          "type": "object"
+        },
+        "correlation_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "detected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "failed_attempts_count": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "log_entry_id": {
+          "type": "string",
+          "description": "foreign key -> structured_log_entries.id"
+        },
+        "resolution_notes": {
+          "type": "string"
+        },
+        "resolved": {
+          "type": "boolean"
+        },
+        "resolved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolved_by": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "threat_indicators": {
+          "type": "object"
+        },
+        "threat_score": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "log_entry_id": "structured_log_entries.id"
+      }
+    },
+    "server_a2a_association": {
+      "type": "object",
+      "description": "Table `server_a2a_association`. Defined at mcpgateway/db.py:2555. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2555",
+      "x-extraction-confidence": "high",
+      "required": [
+        "a2a_agent_id",
+        "server_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "a2a_agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        }
+      },
+      "x-primary-key": [
+        "server_id",
+        "a2a_agent_id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id",
+        "a2a_agent_id": "a2a_agents.id"
+      }
+    },
+    "server_interfaces": {
+      "type": "object",
+      "description": "Table `server_interfaces`. Defined at mcpgateway/db.py:5167. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5167",
+      "x-extraction-confidence": "high",
+      "required": [
+        "binding",
+        "created_at",
+        "enabled",
+        "id",
+        "protocol",
+        "server_id",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "tenant": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id"
+      }
+    },
+    "server_metrics": {
+      "type": "object",
+      "description": "Table `server_metrics`. Defined at mcpgateway/db.py:2644. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2644",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "response_time",
+        "server_id",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id"
+      }
+    },
+    "server_metrics_hourly": {
+      "type": "object",
+      "description": "Table `server_metrics_hourly`. Defined at mcpgateway/db.py:2817. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2817",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "failure_count",
+        "hour_start",
+        "id",
+        "server_name",
+        "success_count",
+        "total_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_response_time": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failure_count": {
+          "type": "integer"
+        },
+        "hour_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "max_response_time": {
+          "type": "number"
+        },
+        "min_response_time": {
+          "type": "number"
+        },
+        "p50_response_time": {
+          "type": "number"
+        },
+        "p95_response_time": {
+          "type": "number"
+        },
+        "p99_response_time": {
+          "type": "number"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "server_name": {
+          "type": "string"
+        },
+        "success_count": {
+          "type": "integer"
+        },
+        "total_count": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id"
+      }
+    },
+    "server_prompt_association": {
+      "type": "object",
+      "description": "Table `server_prompt_association`. Defined at mcpgateway/db.py:2547. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2547",
+      "x-extraction-confidence": "high",
+      "required": [
+        "prompt_id",
+        "server_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "prompt_id": {
+          "type": "string",
+          "description": "foreign key -> prompts.id"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        }
+      },
+      "x-primary-key": [
+        "server_id",
+        "prompt_id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id",
+        "prompt_id": "prompts.id"
+      }
+    },
+    "server_prompt_association_old": {
+      "type": "object",
+      "description": "Table `server_prompt_association_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:750. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:750",
+      "x-extraction-confidence": "high",
+      "required": [
+        "prompt_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "prompt_id": {
+          "type": "integer"
+        },
+        "server_id": {
+          "type": "string"
+        }
+      }
+    },
+    "server_prompt_association_tmp": {
+      "type": "object",
+      "description": "Table `server_prompt_association_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:305. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:305",
+      "x-extraction-confidence": "high",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {
+        "id_new": {
+          "type": "string"
+        },
+        "prompt_id": {
+          "type": "string"
+        },
+        "server_id": {
+          "type": "string"
+        }
+      }
+    },
+    "server_resource_association": {
+      "type": "object",
+      "description": "Table `server_resource_association`. Defined at mcpgateway/db.py:2539. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2539",
+      "x-extraction-confidence": "high",
+      "required": [
+        "resource_id",
+        "server_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "description": "foreign key -> resources.id"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        }
+      },
+      "x-primary-key": [
+        "server_id",
+        "resource_id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id",
+        "resource_id": "resources.id"
+      }
+    },
+    "server_resource_association_old": {
+      "type": "object",
+      "description": "Table `server_resource_association_old`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:905. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:905",
+      "x-extraction-confidence": "high",
+      "required": [
+        "resource_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "resource_id": {
+          "type": "integer"
+        },
+        "server_id": {
+          "type": "string"
+        }
+      }
+    },
+    "server_resource_association_tmp": {
+      "type": "object",
+      "description": "Table `server_resource_association_tmp`. Defined at mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:556. Owned by: unassigned. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/alembic/versions/356a2d4eed6f_uuid_change_for_prompt_and_resources.py:556",
+      "x-extraction-confidence": "high",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {
+        "resource_id": {
+          "type": "string"
+        },
+        "server_id": {
+          "type": "string"
+        }
+      }
+    },
+    "server_task_mappings": {
+      "type": "object",
+      "description": "Table `server_task_mappings`. Defined at mcpgateway/db.py:5146. Owned by: F-005 A2A Agent Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5146",
+      "x-extraction-confidence": "high",
+      "required": [
+        "agent_id",
+        "agent_task_id",
+        "created_at",
+        "id",
+        "server_id",
+        "server_task_id",
+        "status",
+        "updated_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "description": "foreign key -> a2a_agents.id"
+        },
+        "agent_task_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "server_task_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id",
+        "agent_id": "a2a_agents.id"
+      }
+    },
+    "server_tool_association": {
+      "type": "object",
+      "description": "Table `server_tool_association`. Defined at mcpgateway/db.py:2531. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2531",
+      "x-extraction-confidence": "high",
+      "required": [
+        "server_id",
+        "tool_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "server_id": {
+          "type": "string",
+          "description": "foreign key -> servers.id"
+        },
+        "tool_id": {
+          "type": "string",
+          "description": "foreign key -> tools.id"
+        }
+      },
+      "x-primary-key": [
+        "server_id",
+        "tool_id"
+      ],
+      "x-foreign-keys": {
+        "server_id": "servers.id",
+        "tool_id": "tools.id"
+      }
+    },
+    "servers": {
+      "type": "object",
+      "description": "Table `servers`. Defined at mcpgateway/db.py:4424. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4424",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "enabled",
+        "id",
+        "name",
+        "oauth_enabled",
+        "tags",
+        "updated_at",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oauth_config": {
+          "type": "object"
+        },
+        "oauth_enabled": {
+          "type": "boolean"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id"
+      }
+    },
+    "sso_auth_sessions": {
+      "type": "object",
+      "description": "Table `sso_auth_sessions`. Defined at mcpgateway/db.py:5821. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5821",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "expires_at",
+        "id",
+        "provider_id",
+        "redirect_uri",
+        "state"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code_verifier": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "string"
+        },
+        "provider_id": {
+          "type": "string",
+          "description": "foreign key -> sso_providers.id"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "provider_id": "sso_providers.id",
+        "user_email": "email_users.email"
+      }
+    },
+    "sso_providers": {
+      "type": "object",
+      "description": "Table `sso_providers`. Defined at mcpgateway/db.py:5752. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5752",
+      "x-extraction-confidence": "high",
+      "required": [
+        "authorization_url",
+        "auto_create_users",
+        "client_id",
+        "client_secret_encrypted",
+        "created_at",
+        "display_name",
+        "id",
+        "is_enabled",
+        "name",
+        "provider_metadata",
+        "provider_type",
+        "scope",
+        "team_mapping",
+        "token_url",
+        "trusted_domains",
+        "updated_at",
+        "userinfo_url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "api_audience": {
+          "type": "string"
+        },
+        "authorization_url": {
+          "type": "string"
+        },
+        "auto_create_users": {
+          "type": "boolean"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret_encrypted": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_enabled": {
+          "type": "boolean"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "jwks_uri": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provider_metadata": {
+          "type": "object"
+        },
+        "provider_type": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "team_mapping": {
+          "type": "object"
+        },
+        "token_url": {
+          "type": "string"
+        },
+        "trusted_domains": {
+          "type": "object"
+        },
+        "trusted_for_api_auth": {
+          "type": "boolean"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userinfo_url": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "structured_log_entries": {
+      "type": "object",
+      "description": "Table `structured_log_entries`. Defined at mcpgateway/db.py:6162. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6162",
+      "x-extraction-confidence": "high",
+      "required": [
+        "component",
+        "environment",
+        "hostname",
+        "id",
+        "is_security_event",
+        "level",
+        "message",
+        "process_id",
+        "timestamp",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "client_ip": {
+          "type": "string"
+        },
+        "component": {
+          "type": "string"
+        },
+        "context": {
+          "type": "object"
+        },
+        "correlation_id": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "error_details": {
+          "type": "object"
+        },
+        "hostname": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_security_event": {
+          "type": "boolean"
+        },
+        "level": {
+          "type": "string"
+        },
+        "logger": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "operation_type": {
+          "type": "string"
+        },
+        "performance_metrics": {
+          "type": "object"
+        },
+        "process_id": {
+          "type": "integer"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "request_method": {
+          "type": "string"
+        },
+        "request_path": {
+          "type": "string"
+        },
+        "security_severity": {
+          "type": "string"
+        },
+        "span_id": {
+          "type": "string"
+        },
+        "thread_id": {
+          "type": "integer"
+        },
+        "threat_indicators": {
+          "type": "object"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trace_id": {
+          "type": "string"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "token_revocations": {
+      "type": "object",
+      "description": "Table `token_revocations`. Defined at mcpgateway/db.py:5687. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5687",
+      "x-extraction-confidence": "high",
+      "required": [
+        "jti",
+        "revoked_at",
+        "revoked_by"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "jti": {
+          "type": "string"
+        },
+        "last_activity": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "revoked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revoked_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "token_expiry": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "x-primary-key": [
+        "jti"
+      ],
+      "x-foreign-keys": {
+        "revoked_by": "email_users.email"
+      }
+    },
+    "token_usage_logs": {
+      "type": "object",
+      "description": "Table `token_usage_logs`. Defined at mcpgateway/db.py:5630. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:5630",
+      "x-extraction-confidence": "high",
+      "required": [
+        "blocked",
+        "id",
+        "timestamp",
+        "token_jti",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "block_reason": {
+          "type": "string"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "response_time_ms": {
+          "type": "integer"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "token_jti": {
+          "type": "string"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ]
+    },
+    "tool_metrics": {
+      "type": "object",
+      "description": "Table `tool_metrics`. Defined at mcpgateway/db.py:2592. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2592",
+      "x-extraction-confidence": "high",
+      "required": [
+        "id",
+        "is_success",
+        "response_time",
+        "timestamp",
+        "tool_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error_message": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "is_success": {
+          "type": "boolean"
+        },
+        "response_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tool_id": {
+          "type": "string",
+          "description": "foreign key -> tools.id"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "tool_id": "tools.id"
+      }
+    },
+    "tool_metrics_hourly": {
+      "type": "object",
+      "description": "Table `tool_metrics_hourly`. Defined at mcpgateway/db.py:2742. Owned by: F-004 Observability, Metrics and Audit. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:2742",
+      "x-extraction-confidence": "high",
+      "required": [
+        "created_at",
+        "failure_count",
+        "hour_start",
+        "id",
+        "success_count",
+        "tool_name",
+        "total_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "avg_response_time": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "failure_count": {
+          "type": "integer"
+        },
+        "hour_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "max_response_time": {
+          "type": "number"
+        },
+        "min_response_time": {
+          "type": "number"
+        },
+        "p50_response_time": {
+          "type": "number"
+        },
+        "p95_response_time": {
+          "type": "number"
+        },
+        "p99_response_time": {
+          "type": "number"
+        },
+        "success_count": {
+          "type": "integer"
+        },
+        "tool_id": {
+          "type": "string",
+          "description": "foreign key -> tools.id"
+        },
+        "tool_name": {
+          "type": "string"
+        },
+        "total_count": {
+          "type": "integer"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "tool_id": "tools.id"
+      }
+    },
+    "tool_plugin_bindings": {
+      "type": "object",
+      "description": "Table `tool_plugin_bindings`. Defined at mcpgateway/db.py:6929. Owned by: F-007 Plugin Framework and Tool Operations. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:6929",
+      "x-extraction-confidence": "high",
+      "required": [
+        "config",
+        "created_at",
+        "created_by",
+        "id",
+        "mode",
+        "plugin_id",
+        "priority",
+        "team_id",
+        "tool_name",
+        "updated_at",
+        "updated_by"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "binding_reference_id": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "on_error": {
+          "type": "string"
+        },
+        "plugin_id": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "tool_name": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_by": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "team_id": "email_teams.id"
+      }
+    },
+    "toolops_test_cases": {
+      "type": "object",
+      "description": "Table `toolops_test_cases`. Defined at mcpgateway/db.py:4064. Owned by: F-007 Plugin Framework and Tool Operations. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:4064",
+      "x-extraction-confidence": "high",
+      "required": [
+        "run_status",
+        "test_cases",
+        "tool_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "run_status": {
+          "type": "string"
+        },
+        "test_cases": {
+          "type": "object"
+        },
+        "tool_id": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "tool_id"
+      ]
+    },
+    "tools": {
+      "type": "object",
+      "description": "Table `tools`. Defined at mcpgateway/db.py:3305. Owned by: F-001 MCP Registry and Federation. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:3305",
+      "x-extraction-confidence": "high",
+      "required": [
+        "_computed_name",
+        "created_at",
+        "custom_name",
+        "custom_name_slug",
+        "deprecated",
+        "enabled",
+        "expose_passthrough",
+        "id",
+        "input_schema",
+        "integration_type",
+        "jsonpath_filter",
+        "original_name",
+        "reachable",
+        "request_type",
+        "tags",
+        "updated_at",
+        "version",
+        "visibility"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "_computed_name": {
+          "type": "string"
+        },
+        "allowlist": {
+          "type": "object"
+        },
+        "annotations": {
+          "type": "object"
+        },
+        "auth_type": {
+          "type": "string"
+        },
+        "auth_value": {
+          "type": "string"
+        },
+        "base_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_from_ip": {
+          "type": "string"
+        },
+        "created_user_agent": {
+          "type": "string"
+        },
+        "created_via": {
+          "type": "string"
+        },
+        "custom_name": {
+          "type": "string"
+        },
+        "custom_name_slug": {
+          "type": "string"
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "expose_passthrough": {
+          "type": "boolean"
+        },
+        "extension_metadata": {
+          "type": "object"
+        },
+        "federation_source": {
+          "type": "string"
+        },
+        "gateway_id": {
+          "type": "string",
+          "description": "foreign key -> gateways.id"
+        },
+        "grpc_service_id": {
+          "type": "string",
+          "description": "foreign key -> grpc_services.id"
+        },
+        "header_mapping": {
+          "type": "object"
+        },
+        "headers": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "import_batch_id": {
+          "type": "string"
+        },
+        "input_schema": {
+          "type": "object"
+        },
+        "integration_type": {
+          "type": "string"
+        },
+        "jsonpath_filter": {
+          "type": "string"
+        },
+        "modified_by": {
+          "type": "string"
+        },
+        "modified_from_ip": {
+          "type": "string"
+        },
+        "modified_user_agent": {
+          "type": "string"
+        },
+        "modified_via": {
+          "type": "string"
+        },
+        "original_description": {
+          "type": "string"
+        },
+        "original_name": {
+          "type": "string"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "path_template": {
+          "type": "string"
+        },
+        "plugin_chain_post": {
+          "type": "object"
+        },
+        "plugin_chain_pre": {
+          "type": "object"
+        },
+        "query_mapping": {
+          "type": "object"
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "request_type": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "team_id": {
+          "type": "string",
+          "description": "foreign key -> email_teams.id"
+        },
+        "timeout_ms": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "gateway_id": "gateways.id",
+        "grpc_service_id": "grpc_services.id",
+        "team_id": "email_teams.id"
+      }
+    },
+    "user_roles": {
+      "type": "object",
+      "description": "Table `user_roles`. Defined at mcpgateway/db.py:1223. Owned by: F-003 Identity, Teams and Access Control. Fields, types, keys and nullability are derived from that definition; no field here was invented.",
+      "x-source": "mcpgateway/db.py:1223",
+      "x-extraction-confidence": "high",
+      "required": [
+        "granted_at",
+        "granted_by",
+        "id",
+        "is_active",
+        "role_id",
+        "scope",
+        "user_email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "grant_source": {
+          "type": "string"
+        },
+        "granted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "granted_by": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "role_id": {
+          "type": "string",
+          "description": "foreign key -> roles.id"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string",
+          "description": "foreign key -> email_users.email"
+        }
+      },
+      "x-primary-key": [
+        "id"
+      ],
+      "x-foreign-keys": {
+        "user_email": "email_users.email",
+        "role_id": "roles.id",
+        "granted_by": "email_users.email"
+      }
+    }
+  }
+}

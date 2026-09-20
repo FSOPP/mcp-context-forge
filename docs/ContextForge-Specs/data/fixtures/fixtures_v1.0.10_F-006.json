@@ -1,0 +1,33 @@
+{
+  "llm_providers": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "slug": "OPEN",
+      "provider_type": "OPEN",
+      "config": {},
+      "default_temperature": 0,
+      "enabled": false,
+      "health_status": "OPEN",
+      "plugin_ids": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "llm_models": [
+    {
+      "id": "OPEN",
+      "provider_id": "OPEN",
+      "model_id": "OPEN",
+      "model_name": "OPEN",
+      "supports_chat": false,
+      "supports_streaming": false,
+      "supports_function_calling": false,
+      "supports_vision": false,
+      "enabled": false,
+      "deprecated": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ]
+}

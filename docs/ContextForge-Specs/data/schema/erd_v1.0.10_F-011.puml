@@ -1,0 +1,9 @@
+@startuml erd_v1.0.10_F-011
+' F-011 — Rust MCP Runtime. This feature owns no persisted entity.
+hide circle
+
+note as N
+  F-011 stores nothing of its own.
+  See data-erd_v1.0.10_F-011.md for what it reads instead.
+end note
+@enduml

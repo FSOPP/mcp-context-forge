@@ -1,0 +1,31 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ContextForge F-002 \u2014 MCP Protocol Serving and Transports",
+    "version": "v1.0.10",
+    "description": "Channel names are literal topic strings found in this feature's files. Payload shapes were not extracted; every one is OPEN."
+  },
+  "channels": {
+    "hello": {
+      "description": "pubsub channel, role: consume+produce",
+      "x-source": "mcpgateway/translate.py:197",
+      "x-extraction-confidence": "med"
+    },
+    "mcp_session_events": {
+      "description": "redis channel, role: produce",
+      "x-source": "mcpgateway/cache/session_registry.py:654",
+      "x-extraction-confidence": "med"
+    },
+    "second": {
+      "description": "pubsub channel, role: consume+produce",
+      "x-source": "mcpgateway/translate.py:248",
+      "x-extraction-confidence": "med"
+    },
+    "test": {
+      "description": "pubsub channel, role: consume+produce",
+      "x-source": "mcpgateway/translate.py:234",
+      "x-extraction-confidence": "med"
+    }
+  },
+  "operations": {}
+}
