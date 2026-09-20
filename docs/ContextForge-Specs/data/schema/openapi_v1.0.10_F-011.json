@@ -1,0 +1,153 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-011 \u2014 Rust MCP Runtime",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {
+    "/_internal/event-store/replay": {
+      "post": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1353",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1353",
+        "x-mounts": [
+          "/_internal/event-store/replay"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/_internal/event-store/store": {
+      "post": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1352",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1352",
+        "x-mounts": [
+          "/_internal/event-store/store"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1400",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1400",
+        "x-mounts": [
+          "/health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/healthz": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1401",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1401",
+        "x-mounts": [
+          "/healthz"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/mcp": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1404",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1404",
+        "x-mounts": [
+          "/mcp"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/mcp/": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1408",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1408",
+        "x-mounts": [
+          "/mcp/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/rpc": {
+      "post": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1402",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1402",
+        "x-mounts": [
+          "/rpc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/rpc/": {
+      "post": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1403",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1403",
+        "x-mounts": [
+          "/rpc/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/servers/{server_id}/mcp": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1412",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1412",
+        "x-mounts": [
+          "/servers/{server_id}/mcp"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/servers/{server_id}/mcp/": {
+      "get": {
+        "summary": "Route handler at crates/mcp_runtime/src/lib.rs:1418",
+        "x-source": "crates/mcp_runtime/src/lib.rs:1418",
+        "x-mounts": [
+          "/servers/{server_id}/mcp/"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

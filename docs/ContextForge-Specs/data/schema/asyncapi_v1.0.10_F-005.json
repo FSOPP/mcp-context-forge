@@ -1,0 +1,10 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ContextForge F-005 \u2014 A2A Agent Federation",
+    "version": "v1.0.10",
+    "description": "Channel names are literal topic strings found in this feature's files. Payload shapes were not extracted; every one is OPEN."
+  },
+  "channels": {},
+  "operations": {}
+}

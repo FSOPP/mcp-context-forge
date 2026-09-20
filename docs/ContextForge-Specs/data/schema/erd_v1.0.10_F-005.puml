@@ -1,0 +1,176 @@
+@startuml erd_v1.0.10_F-005
+' F-005 — A2A Agent Federation. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "a2a_agents" as a2a_agents {
+  * id : String <<PK>>
+  --
+    uaid : String
+    uaid_registry : String
+    uaid_proto : String
+    uaid_native_id : String
+  * name : String
+  * slug : String
+    description : Text
+  * endpoint_url : String
+  * agent_type : String
+  * protocol_version : String
+  * capabilities : JSON
+  * config : JSON
+    auth_type : String
+    auth_value : Text
+    auth_query_params : JSON
+    oauth_config : JSON
+    passthrough_headers : JSON
+  * enabled : Boolean
+  * reachable : Boolean
+  * created_at : DateTime
+  * updated_at : DateTime
+    last_interaction : DateTime
+  * tags : JSON
+    created_by : String
+    created_from_ip : String
+    created_via : String
+    created_user_agent : Text
+    modified_by : String
+    modified_from_ip : String
+    modified_via : String
+    modified_user_agent : Text
+    import_batch_id : String
+    federation_source : String
+  * version : Integer
+    team_id : String <<FK>>
+    owner_email : String
+  * visibility : String
+    tool_id : String <<FK>>
+    tenant : String
+    icon_url : String
+}
+
+entity "a2a_tasks" as a2a_tasks {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * task_id : String
+    context_id : String
+  * state : String
+    payload : JSON
+    latest_message : JSON
+    last_error : Text
+  * created_at : DateTime
+  * updated_at : DateTime
+    completed_at : DateTime
+}
+
+entity "a2a_agent_auth" as a2a_agent_auth {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+    auth_type : String
+    auth_value : Text
+    auth_query_params : JSON
+    oauth_config : JSON
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "a2a_push_notification_configs" as a2a_push_notification_configs {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * task_id : String
+  * webhook_url : String
+    auth_token : Text
+    events : JSON
+  * enabled : Boolean
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "a2a_task_events" as a2a_task_events {
+  * id : String <<PK>>
+  --
+    a2a_agent_id : String <<FK>>
+  * task_id : String
+  * event_id : String
+  * sequence : BigInteger
+  * event_type : String
+    payload : JSON
+  * created_at : DateTime
+}
+
+entity "a2a_agent_metrics" as a2a_agent_metrics {
+  * id : int <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+  * interaction_type : String
+}
+
+entity "a2a_agent_metrics_hourly" as a2a_agent_metrics_hourly {
+  * id : int <<PK>>
+  --
+    a2a_agent_id : String <<FK>>
+  * agent_name : String
+  * hour_start : DateTime
+  * interaction_type : String
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+    min_response_time : Float
+    max_response_time : Float
+    avg_response_time : Float
+    p50_response_time : Float
+    p95_response_time : Float
+    p99_response_time : Float
+  * created_at : DateTime
+}
+
+entity "server_task_mappings" as server_task_mappings {
+  * id : String <<PK>>
+  --
+  * server_id : String <<FK>>
+  * server_task_id : String
+  * agent_id : String <<FK>>
+  * agent_task_id : String
+  * status : String
+  * created_at : DateTime
+  * updated_at : DateTime
+}
+
+entity "a2a_agent_plugin_bindings" as a2a_agent_plugin_bindings {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * agent_name : String
+  * plugin_id : String
+  * mode : String
+  * priority : Integer
+  * config : JSON
+    binding_reference_id : String
+    on_error : String
+  * created_at : DateTime
+  * created_by : String
+  * updated_at : DateTime
+  * updated_by : String
+}
+
+entity "server_a2a_association" as server_a2a_association {
+  * server_id : unknown <<PK>>
+  * a2a_agent_id : unknown <<PK>>
+}
+
+' relationships (declared ForeignKey targets only)
+a2a_agents ||--o{ a2a_agent_auth : a2a_agent_id
+a2a_agents ||--o{ a2a_agent_metrics : a2a_agent_id
+a2a_agents ||--o{ a2a_agent_metrics_hourly : a2a_agent_id
+a2a_agents ||--o{ a2a_push_notification_configs : a2a_agent_id
+a2a_agents ||--o{ a2a_task_events : a2a_agent_id
+a2a_agents ||--o{ a2a_tasks : a2a_agent_id
+a2a_agents ||--o{ server_a2a_association : a2a_agent_id
+a2a_agents ||--o{ server_task_mappings : agent_id
+@enduml

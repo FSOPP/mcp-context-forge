@@ -1,0 +1,32 @@
+@startuml erd_v1.0.10_F-007
+' F-007 — Plugin Framework and Tool Operations. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "tool_plugin_bindings" as tool_plugin_bindings {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * tool_name : String
+  * plugin_id : String
+  * mode : String
+  * priority : Integer
+  * config : JSON
+    binding_reference_id : String
+    on_error : String
+  * created_at : DateTime
+  * created_by : String
+  * updated_at : DateTime
+  * updated_by : String
+}
+
+entity "toolops_test_cases" as toolops_test_cases {
+  * tool_id : String <<PK>>
+  --
+  * test_cases : JSON
+  * run_status : String
+}
+
+' relationships (declared ForeignKey targets only)
+' none declared as ForeignKey within this subset
+@enduml

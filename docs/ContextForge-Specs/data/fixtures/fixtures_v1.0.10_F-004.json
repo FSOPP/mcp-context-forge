@@ -1,0 +1,230 @@
+{
+  "observability_traces": [
+    {
+      "trace_id": "OPEN",
+      "name": "OPEN",
+      "start_time": "1970-01-01T00:00:00Z",
+      "status": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "observability_spans": [
+    {
+      "span_id": "OPEN",
+      "trace_id": "OPEN",
+      "name": "OPEN",
+      "kind": "OPEN",
+      "start_time": "1970-01-01T00:00:00Z",
+      "status": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "observability_events": [
+    {
+      "id": 0,
+      "span_id": "OPEN",
+      "name": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "observability_metrics": [
+    {
+      "id": 0,
+      "name": "OPEN",
+      "metric_type": "OPEN",
+      "value": 0,
+      "timestamp": "1970-01-01T00:00:00Z",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "observability_saved_queries": [
+    {
+      "id": 0,
+      "name": "OPEN",
+      "user_email": "OPEN",
+      "filter_config": {},
+      "is_shared": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "use_count": 0
+    }
+  ],
+  "tool_metrics": [
+    {
+      "id": 0,
+      "tool_id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "response_time": 0,
+      "is_success": false
+    }
+  ],
+  "resource_metrics": [
+    {
+      "id": 0,
+      "resource_id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "response_time": 0,
+      "is_success": false
+    }
+  ],
+  "server_metrics": [
+    {
+      "id": 0,
+      "server_id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "response_time": 0,
+      "is_success": false
+    }
+  ],
+  "prompt_metrics": [
+    {
+      "id": 0,
+      "prompt_id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "response_time": 0,
+      "is_success": false
+    }
+  ],
+  "tool_metrics_hourly": [
+    {
+      "id": 0,
+      "tool_name": "OPEN",
+      "hour_start": "1970-01-01T00:00:00Z",
+      "total_count": 0,
+      "success_count": 0,
+      "failure_count": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "resource_metrics_hourly": [
+    {
+      "id": 0,
+      "resource_name": "OPEN",
+      "hour_start": "1970-01-01T00:00:00Z",
+      "total_count": 0,
+      "success_count": 0,
+      "failure_count": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "prompt_metrics_hourly": [
+    {
+      "id": 0,
+      "prompt_name": "OPEN",
+      "hour_start": "1970-01-01T00:00:00Z",
+      "total_count": 0,
+      "success_count": 0,
+      "failure_count": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "server_metrics_hourly": [
+    {
+      "id": 0,
+      "server_name": "OPEN",
+      "hour_start": "1970-01-01T00:00:00Z",
+      "total_count": 0,
+      "success_count": 0,
+      "failure_count": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "performance_snapshots": [
+    {
+      "id": 0,
+      "timestamp": "1970-01-01T00:00:00Z",
+      "host": "OPEN",
+      "metrics_json": {},
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "performance_aggregates": [
+    {
+      "id": 0,
+      "period_start": "1970-01-01T00:00:00Z",
+      "period_end": "1970-01-01T00:00:00Z",
+      "period_type": "OPEN",
+      "requests_total": 0,
+      "requests_2xx": 0,
+      "requests_4xx": 0,
+      "requests_5xx": 0,
+      "avg_response_time_ms": 0,
+      "p95_response_time_ms": 0,
+      "peak_requests_per_second": 0,
+      "avg_cpu_percent": 0,
+      "avg_memory_percent": 0,
+      "peak_cpu_percent": 0,
+      "peak_memory_percent": 0,
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "performance_metrics": [
+    {
+      "id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "operation_type": "OPEN",
+      "component": "OPEN",
+      "request_count": 0,
+      "error_count": 0,
+      "error_rate": 0,
+      "avg_duration_ms": 0,
+      "min_duration_ms": 0,
+      "max_duration_ms": 0,
+      "p50_duration_ms": 0,
+      "p95_duration_ms": 0,
+      "p99_duration_ms": 0,
+      "window_start": "1970-01-01T00:00:00Z",
+      "window_end": "1970-01-01T00:00:00Z",
+      "window_duration_seconds": 0
+    }
+  ],
+  "structured_log_entries": [
+    {
+      "id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "level": "OPEN",
+      "component": "OPEN",
+      "message": "OPEN",
+      "is_security_event": false,
+      "hostname": "OPEN",
+      "process_id": 0,
+      "version": "OPEN",
+      "environment": "OPEN"
+    }
+  ],
+  "security_events": [
+    {
+      "id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "detected_at": "1970-01-01T00:00:00Z",
+      "event_type": "OPEN",
+      "severity": "OPEN",
+      "category": "OPEN",
+      "client_ip": "OPEN",
+      "description": "OPEN",
+      "threat_score": 0,
+      "threat_indicators": {},
+      "failed_attempts_count": 0,
+      "resolved": false,
+      "alert_sent": false
+    }
+  ],
+  "audit_trails": [
+    {
+      "id": "OPEN",
+      "timestamp": "1970-01-01T00:00:00Z",
+      "action": "OPEN",
+      "resource_type": "OPEN",
+      "user_id": "OPEN",
+      "requires_review": false,
+      "success": false
+    }
+  ],
+  "migration_metadata": [
+    {
+      "revision": "OPEN",
+      "key": "OPEN"
+    }
+  ]
+}

@@ -1,0 +1,617 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ContextForge F-006 \u2014 LLM Gateway and Chat",
+    "version": "v1.0.10",
+    "description": "Reversed from the route table. Paths and methods are derived and cited in x-source; request and response shapes are not \u2014 the repository ships no OpenAPI file, and the handlers were not read field by field. Treat every schema slot as OPEN."
+  },
+  "paths": {
+    "/chat/completions": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_proxy_router.py:43",
+        "x-source": "mcpgateway/routers/llm_proxy_router.py:43",
+        "x-mounts": [
+          "/chat/completions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/gateway/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:596",
+        "x-source": "mcpgateway/routers/llm_config_router.py:596",
+        "x-mounts": [
+          "/llm/gateway/models",
+          "/v1/llm/gateway/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:385",
+        "x-source": "mcpgateway/routers/llm_config_router.py:385",
+        "x-mounts": [
+          "/llm/models",
+          "/v1/llm/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:346",
+        "x-source": "mcpgateway/routers/llm_config_router.py:346",
+        "x-mounts": [
+          "/llm/models",
+          "/v1/llm/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/models/{model_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:520",
+        "x-source": "mcpgateway/routers/llm_config_router.py:520",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:440",
+        "x-source": "mcpgateway/routers/llm_config_router.py:440",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:479",
+        "x-source": "mcpgateway/routers/llm_config_router.py:479",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/models/{model_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:550",
+        "x-source": "mcpgateway/routers/llm_config_router.py:550",
+        "x-mounts": [
+          "/llm/models/{model_id}/state",
+          "/v1/llm/models/{model_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/providers": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:110",
+        "x-source": "mcpgateway/routers/llm_config_router.py:110",
+        "x-mounts": [
+          "/llm/providers",
+          "/v1/llm/providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:61",
+        "x-source": "mcpgateway/routers/llm_config_router.py:61",
+        "x-mounts": [
+          "/llm/providers",
+          "/v1/llm/providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/providers/{provider_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:239",
+        "x-source": "mcpgateway/routers/llm_config_router.py:239",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:156",
+        "x-source": "mcpgateway/routers/llm_config_router.py:156",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:192",
+        "x-source": "mcpgateway/routers/llm_config_router.py:192",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/providers/{provider_id}/health": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:307",
+        "x-source": "mcpgateway/routers/llm_config_router.py:307",
+        "x-mounts": [
+          "/llm/providers/{provider_id}/health",
+          "/v1/llm/providers/{provider_id}/health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llm/providers/{provider_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:269",
+        "x-source": "mcpgateway/routers/llm_config_router.py:269",
+        "x-mounts": [
+          "/llm/providers/{provider_id}/state",
+          "/v1/llm/providers/{provider_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/chat": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1287",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1287",
+        "x-mounts": [
+          "/llmchat/chat",
+          "/v1/llmchat/chat"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/config/{user_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1575",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1575",
+        "x-mounts": [
+          "/llmchat/config/{user_id}",
+          "/v1/llmchat/config/{user_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/connect": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1011",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1011",
+        "x-mounts": [
+          "/llmchat/connect",
+          "/v1/llmchat/connect"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/disconnect": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1412",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1412",
+        "x-mounts": [
+          "/llmchat/disconnect",
+          "/v1/llmchat/disconnect"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/gateway/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1636",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1636",
+        "x-mounts": [
+          "/llmchat/gateway/models",
+          "/v1/llmchat/gateway/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/llmchat/status/{user_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1524",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1524",
+        "x-mounts": [
+          "/llmchat/status/{user_id}",
+          "/v1/llmchat/status/{user_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_proxy_router.py:133",
+        "x-source": "mcpgateway/routers/llm_proxy_router.py:133",
+        "x-mounts": [
+          "/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/gateway/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:596",
+        "x-source": "mcpgateway/routers/llm_config_router.py:596",
+        "x-mounts": [
+          "/llm/gateway/models",
+          "/v1/llm/gateway/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:385",
+        "x-source": "mcpgateway/routers/llm_config_router.py:385",
+        "x-mounts": [
+          "/llm/models",
+          "/v1/llm/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:346",
+        "x-source": "mcpgateway/routers/llm_config_router.py:346",
+        "x-mounts": [
+          "/llm/models",
+          "/v1/llm/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/models/{model_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:520",
+        "x-source": "mcpgateway/routers/llm_config_router.py:520",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:440",
+        "x-source": "mcpgateway/routers/llm_config_router.py:440",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:479",
+        "x-source": "mcpgateway/routers/llm_config_router.py:479",
+        "x-mounts": [
+          "/llm/models/{model_id}",
+          "/v1/llm/models/{model_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/models/{model_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:550",
+        "x-source": "mcpgateway/routers/llm_config_router.py:550",
+        "x-mounts": [
+          "/llm/models/{model_id}/state",
+          "/v1/llm/models/{model_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/providers": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:110",
+        "x-source": "mcpgateway/routers/llm_config_router.py:110",
+        "x-mounts": [
+          "/llm/providers",
+          "/v1/llm/providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:61",
+        "x-source": "mcpgateway/routers/llm_config_router.py:61",
+        "x-mounts": [
+          "/llm/providers",
+          "/v1/llm/providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/providers/{provider_id}": {
+      "delete": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:239",
+        "x-source": "mcpgateway/routers/llm_config_router.py:239",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:156",
+        "x-source": "mcpgateway/routers/llm_config_router.py:156",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:192",
+        "x-source": "mcpgateway/routers/llm_config_router.py:192",
+        "x-mounts": [
+          "/llm/providers/{provider_id}",
+          "/v1/llm/providers/{provider_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/providers/{provider_id}/health": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:307",
+        "x-source": "mcpgateway/routers/llm_config_router.py:307",
+        "x-mounts": [
+          "/llm/providers/{provider_id}/health",
+          "/v1/llm/providers/{provider_id}/health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llm/providers/{provider_id}/state": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llm_config_router.py:269",
+        "x-source": "mcpgateway/routers/llm_config_router.py:269",
+        "x-mounts": [
+          "/llm/providers/{provider_id}/state",
+          "/v1/llm/providers/{provider_id}/state"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/chat": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1287",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1287",
+        "x-mounts": [
+          "/llmchat/chat",
+          "/v1/llmchat/chat"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/config/{user_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1575",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1575",
+        "x-mounts": [
+          "/llmchat/config/{user_id}",
+          "/v1/llmchat/config/{user_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/connect": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1011",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1011",
+        "x-mounts": [
+          "/llmchat/connect",
+          "/v1/llmchat/connect"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/disconnect": {
+      "post": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1412",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1412",
+        "x-mounts": [
+          "/llmchat/disconnect",
+          "/v1/llmchat/disconnect"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/gateway/models": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1636",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1636",
+        "x-mounts": [
+          "/llmchat/gateway/models",
+          "/v1/llmchat/gateway/models"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    },
+    "/v1/llmchat/status/{user_id}": {
+      "get": {
+        "summary": "Route handler at mcpgateway/routers/llmchat_router.py:1524",
+        "x-source": "mcpgateway/routers/llmchat_router.py:1524",
+        "x-mounts": [
+          "/llmchat/status/{user_id}",
+          "/v1/llmchat/status/{user_id}"
+        ],
+        "responses": {
+          "200": {
+            "description": "OPEN: response shape not extracted from the handler."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "tool_plugin_bindings": [
+    {
+      "id": "OPEN",
+      "team_id": "OPEN",
+      "tool_name": "OPEN",
+      "plugin_id": "OPEN",
+      "mode": "OPEN",
+      "priority": 0,
+      "config": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "created_by": "OPEN",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "updated_by": "OPEN"
+    }
+  ],
+  "toolops_test_cases": [
+    {
+      "tool_id": "OPEN",
+      "test_cases": {},
+      "run_status": "OPEN"
+    }
+  ]
+}

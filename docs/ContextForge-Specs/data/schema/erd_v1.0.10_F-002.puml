@@ -1,0 +1,37 @@
+@startuml erd_v1.0.10_F-002
+' F-002 — MCP Protocol Serving and Transports. Subset of erd_master; introduces nothing new.
+hide circle
+skinparam linetype ortho
+
+entity "mcp_sessions" as mcp_sessions {
+  * session_id : String <<PK>>
+  --
+  * created_at : DateTime
+  * last_accessed : DateTime
+    data : Text
+}
+
+entity "mcp_messages" as mcp_messages {
+  * id : int <<PK>>
+  --
+  * session_id : String <<FK>>
+    message : Text
+  * created_at : DateTime
+  * last_accessed : DateTime
+}
+
+entity "mcp_app_sessions" as mcp_app_sessions {
+  * id : String <<PK>>
+  --
+  * mcp_session_id : String
+  * user_email : String
+    server_id : String <<FK>>
+  * resource_uri : String
+    token_teams : JSON
+  * created_at : DateTime
+  * expires_at : DateTime
+}
+
+' relationships (declared ForeignKey targets only)
+mcp_sessions ||--o{ mcp_messages : session_id
+@enduml

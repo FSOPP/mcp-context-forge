@@ -1,0 +1,9 @@
+@startuml erd_v1.0.10_F-008
+' F-008 — Admin Console. This feature owns no persisted entity.
+hide circle
+
+note as N
+  F-008 stores nothing of its own.
+  See data-erd_v1.0.10_F-008.md for what it reads instead.
+end note
+@enduml

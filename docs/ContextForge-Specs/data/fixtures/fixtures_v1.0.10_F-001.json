@@ -1,0 +1,150 @@
+{
+  "gateways": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "slug": "OPEN",
+      "url": "OPEN",
+      "transport": "OPEN",
+      "capabilities": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "status": "OPEN",
+      "registration_attempts": 0,
+      "enabled": false,
+      "reachable": false,
+      "tags": {},
+      "version": 0,
+      "visibility": "OPEN",
+      "gateway_mode": "OPEN"
+    }
+  ],
+  "tools": [
+    {
+      "id": "OPEN",
+      "original_name": "OPEN",
+      "integration_type": "OPEN",
+      "request_type": "OPEN",
+      "input_schema": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "enabled": false,
+      "deprecated": false,
+      "reachable": false,
+      "jsonpath_filter": "OPEN",
+      "tags": {},
+      "version": 0,
+      "custom_name": "OPEN",
+      "custom_name_slug": "OPEN",
+      "expose_passthrough": false,
+      "visibility": "OPEN",
+      "_computed_name": "OPEN"
+    }
+  ],
+  "resources": [
+    {
+      "id": "OPEN",
+      "uri": "OPEN",
+      "name": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "enabled": false,
+      "tags": {},
+      "version": 0,
+      "visibility": "OPEN"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "OPEN",
+      "original_name": "OPEN",
+      "custom_name": "OPEN",
+      "custom_name_slug": "OPEN",
+      "name": "OPEN",
+      "template": "OPEN",
+      "argument_schema": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "enabled": false,
+      "tags": {},
+      "version": 0,
+      "visibility": "OPEN"
+    }
+  ],
+  "servers": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "enabled": false,
+      "tags": {},
+      "version": 0,
+      "visibility": "OPEN",
+      "oauth_enabled": false
+    }
+  ],
+  "resource_subscriptions": [
+    {
+      "id": 0,
+      "resource_id": "OPEN",
+      "subscriber_id": "OPEN",
+      "created_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "grpc_services": [
+    {
+      "id": "OPEN",
+      "name": "OPEN",
+      "slug": "OPEN",
+      "target": "OPEN",
+      "reflection_enabled": false,
+      "tls_enabled": false,
+      "grpc_metadata": {},
+      "enabled": false,
+      "reachable": false,
+      "service_count": 0,
+      "method_count": 0,
+      "discovered_services": {},
+      "tags": {},
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z",
+      "version": 0,
+      "visibility": "OPEN"
+    }
+  ],
+  "server_tool_association": [
+    {
+      "server_id": "OPEN",
+      "tool_id": "OPEN"
+    }
+  ],
+  "server_resource_association": [
+    {
+      "server_id": "OPEN",
+      "resource_id": "OPEN"
+    }
+  ],
+  "server_prompt_association": [
+    {
+      "server_id": "OPEN",
+      "prompt_id": "OPEN"
+    }
+  ],
+  "server_interfaces": [
+    {
+      "id": "OPEN",
+      "server_id": "OPEN",
+      "protocol": "OPEN",
+      "binding": "OPEN",
+      "enabled": false,
+      "created_at": "1970-01-01T00:00:00Z",
+      "updated_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "global_config": [
+    {
+      "id": 0
+    }
+  ]
+}

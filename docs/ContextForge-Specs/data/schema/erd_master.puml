@@ -1,0 +1,856 @@
+@startuml erd_master
+' Master ERD — ContextForge, reversed from mcpgateway/db.py.
+' Names match schemas.json $defs keys exactly. Field lists are truncated to
+' six non-key columns per entity for legibility; schemas.json is complete.
+hide circle
+skinparam linetype ortho
+
+entity "a2a_agent_auth" as a2a_agent_auth {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+    auth_type : String
+    auth_value : Text
+    auth_query_params : JSON
+    oauth_config : JSON
+  * created_at : DateTime
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "a2a_agent_metrics" as a2a_agent_metrics {
+  * id : int <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+  * interaction_type : String
+}
+
+entity "a2a_agent_metrics_hourly" as a2a_agent_metrics_hourly {
+  * id : int <<PK>>
+  --
+    a2a_agent_id : String <<FK>>
+  * agent_name : String
+  * hour_start : DateTime
+  * interaction_type : String
+  * total_count : Integer
+  * success_count : Integer
+  .. 8 more fields, see schemas.json ..
+}
+
+entity "a2a_agent_plugin_bindings" as a2a_agent_plugin_bindings {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * agent_name : String
+  * plugin_id : String
+  * mode : String
+  * priority : Integer
+  * config : JSON
+  .. 6 more fields, see schemas.json ..
+}
+
+entity "a2a_agents" as a2a_agents {
+  * id : String <<PK>>
+  --
+    uaid : String
+    uaid_registry : String
+    uaid_proto : String
+    uaid_native_id : String
+  * name : String
+  * slug : String
+  .. 34 more fields, see schemas.json ..
+}
+
+entity "a2a_push_notification_configs" as a2a_push_notification_configs {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * task_id : String
+  * webhook_url : String
+    auth_token : Text
+    events : JSON
+  * enabled : Boolean
+  .. 2 more fields, see schemas.json ..
+}
+
+entity "a2a_task_events" as a2a_task_events {
+  * id : String <<PK>>
+  --
+    a2a_agent_id : String <<FK>>
+  * task_id : String
+  * event_id : String
+  * sequence : BigInteger
+  * event_type : String
+    payload : JSON
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "a2a_tasks" as a2a_tasks {
+  * id : String <<PK>>
+  --
+  * a2a_agent_id : String <<FK>>
+  * task_id : String
+    context_id : String
+  * state : String
+    payload : JSON
+    latest_message : JSON
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "audit_trails" as audit_trails {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+    correlation_id : String
+    request_id : String
+  * action : String
+  * resource_type : String
+    resource_id : String
+  .. 19 more fields, see schemas.json ..
+}
+
+entity "email_api_tokens" as email_api_tokens {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+    team_id : String <<FK>>
+  * name : String
+  * jti : String
+  * token_hash : String
+    server_id : String <<FK>>
+  .. 10 more fields, see schemas.json ..
+}
+
+entity "email_auth_events" as email_auth_events {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+    user_email : String
+  * event_type : String
+  * success : Boolean
+    ip_address : String
+    user_agent : Text
+  .. 2 more fields, see schemas.json ..
+}
+
+entity "email_team_invitations" as email_team_invitations {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * email : String
+  * role : String
+  * invited_by : String <<FK>>
+  * invited_at : DateTime
+  * expires_at : DateTime
+  .. 2 more fields, see schemas.json ..
+}
+
+entity "email_team_join_requests" as email_team_join_requests {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+    message : Text
+  * status : String
+  * requested_at : DateTime
+  * expires_at : DateTime
+  .. 3 more fields, see schemas.json ..
+}
+
+entity "email_team_member_history" as email_team_member_history {
+  * id : String <<PK>>
+  --
+  * team_member_id : String <<FK>>
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+  * role : String
+  * action : String
+    action_by : String <<FK>>
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "email_team_members" as email_team_members {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * user_email : String <<FK>>
+  * role : String
+  * joined_at : DateTime
+    invited_by : String <<FK>>
+  * is_active : Boolean
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "email_teams" as email_teams {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+    description : Text
+  * created_by : String <<FK>>
+  * is_personal : Boolean
+  * visibility : String
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "email_users" as email_users {
+  * id : String <<PK>>
+  --
+  * email : String
+    password_hash : String
+    full_name : String
+  * is_admin : Boolean
+    admin_origin : String
+  * is_active : Boolean
+  .. 10 more fields, see schemas.json ..
+}
+
+entity "gateways" as gateways {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+  * url : String
+    description : Text
+  * transport : String
+  * capabilities : JSON
+  .. 44 more fields, see schemas.json ..
+}
+
+entity "global_config" as global_config {
+  * id : Integer <<PK>>
+  --
+    passthrough_headers : JSON
+}
+
+entity "grpc_services" as grpc_services {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+    description : Text
+  * target : String
+  * reflection_enabled : Boolean
+  * tls_enabled : Boolean
+  .. 26 more fields, see schemas.json ..
+}
+
+entity "llm_models" as llm_models {
+  * id : String <<PK>>
+  --
+  * provider_id : String <<FK>>
+  * model_id : String
+  * model_name : String
+    model_alias : String
+    description : Text
+  * supports_chat : Boolean
+  .. 9 more fields, see schemas.json ..
+}
+
+entity "llm_providers" as llm_providers {
+  * id : String <<PK>>
+  --
+  * name : String
+  * slug : String
+    description : Text
+  * provider_type : String
+    api_key : Text
+    api_base : String
+  .. 13 more fields, see schemas.json ..
+}
+
+entity "mcp_app_sessions" as mcp_app_sessions {
+  * id : String <<PK>>
+  --
+  * mcp_session_id : String
+  * user_email : String
+    server_id : String <<FK>>
+  * resource_uri : String
+    token_teams : JSON
+  * created_at : DateTime
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "mcp_messages" as mcp_messages {
+  * id : int <<PK>>
+  --
+  * session_id : String <<FK>>
+    message : Text
+  * created_at : DateTime
+  * last_accessed : DateTime
+}
+
+entity "mcp_sessions" as mcp_sessions {
+  * session_id : String <<PK>>
+  --
+  * created_at : DateTime
+  * last_accessed : DateTime
+    data : Text
+}
+
+entity "migration_metadata" as migration_metadata {
+  * revision : String <<PK>>
+  * key : String <<PK>>
+  --
+    value : Text
+    created_at : DateTime
+}
+
+entity "oauth_states" as oauth_states {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * state : String
+    code_verifier : String
+    app_user_email : String
+    redirect_uri : String
+    team_id : String
+  .. 3 more fields, see schemas.json ..
+}
+
+entity "oauth_tokens" as oauth_tokens {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * user_id : String
+  * app_user_email : String <<FK>>
+  * access_token : EncryptedText
+    refresh_token : EncryptedText
+  * token_type : String
+  .. 6 more fields, see schemas.json ..
+}
+
+entity "observability_events" as observability_events {
+  * id : Integer <<PK>>
+  --
+  * span_id : String <<FK>>
+  * name : String
+  * timestamp : DateTime
+    attributes : JSON
+    severity : String
+    message : Text
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "observability_metrics" as observability_metrics {
+  * id : Integer <<PK>>
+  --
+  * name : String
+  * metric_type : String
+  * value : Float
+  * timestamp : DateTime
+    unit : String
+    attributes : JSON
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "observability_saved_queries" as observability_saved_queries {
+  * id : Integer <<PK>>
+  --
+  * name : String
+    description : Text
+  * user_email : String
+  * filter_config : JSON
+  * is_shared : Boolean
+  * created_at : DateTime
+  .. 3 more fields, see schemas.json ..
+}
+
+entity "observability_spans" as observability_spans {
+  * span_id : String <<PK>>
+  --
+  * trace_id : String <<FK>>
+    parent_span_id : String <<FK>>
+  * name : String
+  * kind : String
+  * start_time : DateTime
+    end_time : DateTime
+  .. 8 more fields, see schemas.json ..
+}
+
+entity "observability_traces" as observability_traces {
+  * trace_id : String <<PK>>
+  --
+  * name : String
+  * start_time : DateTime
+    end_time : DateTime
+    duration_ms : Float
+  * status : String
+    status_message : Text
+  .. 9 more fields, see schemas.json ..
+}
+
+entity "password_history" as password_history {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * password_hash : Text
+  * changed_at : DateTime
+}
+
+entity "password_reset_tokens" as password_reset_tokens {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * token_hash : String
+  * expires_at : DateTime
+    used_at : DateTime
+  * created_at : DateTime
+    ip_address : String
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "pending_user_approvals" as pending_user_approvals {
+  * id : String <<PK>>
+  --
+  * email : String
+  * full_name : String
+  * auth_provider : String
+    sso_metadata : JSON
+  * requested_at : DateTime
+  * expires_at : DateTime
+  .. 5 more fields, see schemas.json ..
+}
+
+entity "performance_aggregates" as performance_aggregates {
+  * id : Integer <<PK>>
+  --
+  * period_start : DateTime
+  * period_end : DateTime
+  * period_type : String
+    host : String
+  * requests_total : Integer
+  * requests_2xx : Integer
+  .. 10 more fields, see schemas.json ..
+}
+
+entity "performance_metrics" as performance_metrics {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+  * operation_type : String
+  * component : String
+  * request_count : Integer
+  * error_count : Integer
+  * error_rate : Float
+  .. 10 more fields, see schemas.json ..
+}
+
+entity "performance_snapshots" as performance_snapshots {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+  * host : String
+    worker_id : String
+  * metrics_json : JSON
+  * created_at : DateTime
+}
+
+entity "permission_audit_log" as permission_audit_log {
+  * id : Integer <<PK>>
+  --
+  * timestamp : DateTime
+    user_email : String
+  * permission : String
+    resource_type : String
+    resource_id : String
+    team_id : String
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "prompt_metrics" as prompt_metrics {
+  * id : int <<PK>>
+  --
+  * prompt_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "prompt_metrics_hourly" as prompt_metrics_hourly {
+  * id : int <<PK>>
+  --
+    prompt_id : String <<FK>>
+  * prompt_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+  .. 7 more fields, see schemas.json ..
+}
+
+entity "prompts" as prompts {
+  * id : String <<PK>>
+  --
+  * original_name : String
+  * custom_name : String
+  * custom_name_slug : String
+    display_name : String
+    title : String
+  * name : String
+  .. 22 more fields, see schemas.json ..
+}
+
+entity "registered_oauth_clients" as registered_oauth_clients {
+  * id : String <<PK>>
+  --
+  * gateway_id : String <<FK>>
+  * issuer : String
+  * client_id : String
+    client_secret_encrypted : Text
+  * redirect_uris : Text
+  * grant_types : Text
+  .. 8 more fields, see schemas.json ..
+}
+
+entity "resource_metrics" as resource_metrics {
+  * id : int <<PK>>
+  --
+  * resource_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "resource_metrics_hourly" as resource_metrics_hourly {
+  * id : int <<PK>>
+  --
+    resource_id : String <<FK>>
+  * resource_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+  .. 7 more fields, see schemas.json ..
+}
+
+entity "resource_subscriptions" as resource_subscriptions {
+  * id : int <<PK>>
+  --
+  * resource_id : ForeignKey <<FK>>
+  * subscriber_id : String
+  * created_at : DateTime
+    last_notification : DateTime
+}
+
+entity "resources" as resources {
+  * id : String <<PK>>
+  --
+  * uri : String
+  * name : String
+    description : Text
+    title : String
+    mime_type : String
+    size : Integer
+  .. 23 more fields, see schemas.json ..
+}
+
+entity "roles" as roles {
+  * id : String <<PK>>
+  --
+  * name : String
+    description : Text
+  * scope : String
+  * permissions : JSON
+    inherits_from : String <<FK>>
+  * created_by : String <<FK>>
+  .. 4 more fields, see schemas.json ..
+}
+
+entity "security_events" as security_events {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+  * detected_at : DateTime
+    correlation_id : String
+    log_entry_id : String <<FK>>
+  * event_type : String
+  * severity : String
+  .. 18 more fields, see schemas.json ..
+}
+
+entity "server_a2a_association" as server_a2a_association {
+  * server_id : unknown <<PK>>
+  * a2a_agent_id : unknown <<PK>>
+}
+
+entity "server_interfaces" as server_interfaces {
+  * id : String <<PK>>
+  --
+  * server_id : String <<FK>>
+  * protocol : String
+  * binding : String
+    version : String
+    tenant : String
+  * enabled : Boolean
+  .. 3 more fields, see schemas.json ..
+}
+
+entity "server_metrics" as server_metrics {
+  * id : int <<PK>>
+  --
+  * server_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "server_metrics_hourly" as server_metrics_hourly {
+  * id : int <<PK>>
+  --
+    server_id : String <<FK>>
+  * server_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+  .. 7 more fields, see schemas.json ..
+}
+
+entity "server_prompt_association" as server_prompt_association {
+  * server_id : unknown <<PK>>
+  * prompt_id : unknown <<PK>>
+}
+
+entity "server_resource_association" as server_resource_association {
+  * server_id : unknown <<PK>>
+  * resource_id : unknown <<PK>>
+}
+
+entity "server_task_mappings" as server_task_mappings {
+  * id : String <<PK>>
+  --
+  * server_id : String <<FK>>
+  * server_task_id : String
+  * agent_id : String <<FK>>
+  * agent_task_id : String
+  * status : String
+  * created_at : DateTime
+  .. 1 more fields, see schemas.json ..
+}
+
+entity "server_tool_association" as server_tool_association {
+  * server_id : unknown <<PK>>
+  * tool_id : unknown <<PK>>
+}
+
+entity "servers" as servers {
+  * id : String <<PK>>
+  --
+  * name : String
+    description : Text
+    icon : String
+  * created_at : DateTime
+  * updated_at : DateTime
+  * enabled : bool
+  .. 17 more fields, see schemas.json ..
+}
+
+entity "sso_auth_sessions" as sso_auth_sessions {
+  * id : String <<PK>>
+  --
+  * provider_id : String <<FK>>
+  * state : String
+    code_verifier : String
+    nonce : String
+  * redirect_uri : String
+  * expires_at : DateTime
+  .. 2 more fields, see schemas.json ..
+}
+
+entity "sso_providers" as sso_providers {
+  * id : String <<PK>>
+  --
+  * name : String
+  * display_name : String
+  * provider_type : String
+  * is_enabled : Boolean
+  * client_id : String
+  * client_secret_encrypted : Text
+  .. 14 more fields, see schemas.json ..
+}
+
+entity "structured_log_entries" as structured_log_entries {
+  * id : String <<PK>>
+  --
+  * timestamp : DateTime
+    correlation_id : String
+    request_id : String
+  * level : String
+  * component : String
+  * message : Text
+  .. 22 more fields, see schemas.json ..
+}
+
+entity "token_revocations" as token_revocations {
+  * jti : String <<PK>>
+  --
+  * revoked_at : DateTime
+  * revoked_by : String <<FK>>
+    reason : String
+    token_expiry : DateTime
+    last_activity : DateTime
+}
+
+entity "token_usage_logs" as token_usage_logs {
+  * id : Integer <<PK>>
+  --
+  * token_jti : String
+  * user_email : String
+  * timestamp : DateTime
+    endpoint : String
+    method : String
+    ip_address : String
+  .. 5 more fields, see schemas.json ..
+}
+
+entity "tool_metrics" as tool_metrics {
+  * id : int <<PK>>
+  --
+  * tool_id : String <<FK>>
+  * timestamp : DateTime
+  * response_time : Float
+  * is_success : Boolean
+    error_message : Text
+}
+
+entity "tool_metrics_hourly" as tool_metrics_hourly {
+  * id : int <<PK>>
+  --
+    tool_id : String <<FK>>
+  * tool_name : String
+  * hour_start : DateTime
+  * total_count : Integer
+  * success_count : Integer
+  * failure_count : Integer
+  .. 7 more fields, see schemas.json ..
+}
+
+entity "tool_plugin_bindings" as tool_plugin_bindings {
+  * id : String <<PK>>
+  --
+  * team_id : String <<FK>>
+  * tool_name : String
+  * plugin_id : String
+  * mode : String
+  * priority : Integer
+  * config : JSON
+  .. 6 more fields, see schemas.json ..
+}
+
+entity "toolops_test_cases" as toolops_test_cases {
+  * tool_id : String <<PK>>
+  --
+  * test_cases : JSON
+  * run_status : String
+}
+
+entity "tools" as tools {
+  * id : String <<PK>>
+  --
+  * original_name : String
+    url : String
+    original_description : Text
+    description : Text
+  * integration_type : String
+  * request_type : String
+  .. 44 more fields, see schemas.json ..
+}
+
+entity "user_roles" as user_roles {
+  * id : String <<PK>>
+  --
+  * user_email : String <<FK>>
+  * role_id : String <<FK>>
+  * scope : String
+    scope_id : String
+  * granted_by : String <<FK>>
+  * granted_at : DateTime
+  .. 3 more fields, see schemas.json ..
+}
+
+' relationships (declared ForeignKey targets only)
+a2a_agents ||--o{ a2a_agent_auth : a2a_agent_id
+a2a_agents ||--o{ a2a_agent_metrics : a2a_agent_id
+a2a_agents ||--o{ a2a_agent_metrics_hourly : a2a_agent_id
+a2a_agents ||--o{ a2a_push_notification_configs : a2a_agent_id
+a2a_agents ||--o{ a2a_task_events : a2a_agent_id
+a2a_agents ||--o{ a2a_tasks : a2a_agent_id
+a2a_agents ||--o{ server_a2a_association : a2a_agent_id
+a2a_agents ||--o{ server_task_mappings : agent_id
+email_team_members ||--o{ email_team_member_history : team_member_id
+email_teams ||--o{ a2a_agent_plugin_bindings : team_id
+email_teams ||--o{ a2a_agents : team_id
+email_teams ||--o{ email_api_tokens : team_id
+email_teams ||--o{ email_team_invitations : team_id
+email_teams ||--o{ email_team_join_requests : team_id
+email_teams ||--o{ email_team_member_history : team_id
+email_teams ||--o{ email_team_members : team_id
+email_teams ||--o{ gateways : team_id
+email_teams ||--o{ grpc_services : team_id
+email_teams ||--o{ prompts : team_id
+email_teams ||--o{ resources : team_id
+email_teams ||--o{ servers : team_id
+email_teams ||--o{ tool_plugin_bindings : team_id
+email_teams ||--o{ tools : team_id
+email_users ||--o{ email_api_tokens : user_email
+email_users ||--o{ email_team_invitations : invited_by
+email_users ||--o{ email_team_join_requests : reviewed_by
+email_users ||--o{ email_team_join_requests : user_email
+email_users ||--o{ email_team_member_history : action_by
+email_users ||--o{ email_team_member_history : user_email
+email_users ||--o{ email_team_members : invited_by
+email_users ||--o{ email_team_members : user_email
+email_users ||--o{ email_teams : created_by
+email_users ||--o{ oauth_tokens : app_user_email
+email_users ||--o{ password_history : user_email
+email_users ||--o{ password_reset_tokens : user_email
+email_users ||--o{ pending_user_approvals : approved_by
+email_users ||--o{ roles : created_by
+email_users ||--o{ sso_auth_sessions : user_email
+email_users ||--o{ token_revocations : revoked_by
+email_users ||--o{ user_roles : granted_by
+email_users ||--o{ user_roles : user_email
+gateways ||--o{ oauth_states : gateway_id
+gateways ||--o{ oauth_tokens : gateway_id
+gateways ||--o{ prompts : gateway_id
+gateways ||--o{ registered_oauth_clients : gateway_id
+gateways ||--o{ resources : gateway_id
+gateways ||--o{ tools : gateway_id
+grpc_services ||--o{ tools : grpc_service_id
+llm_providers ||--o{ llm_models : provider_id
+mcp_sessions ||--o{ mcp_messages : session_id
+observability_spans ||--o{ observability_events : span_id
+observability_traces ||--o{ observability_metrics : trace_id
+observability_traces ||--o{ observability_spans : trace_id
+prompts ||--o{ prompt_metrics : prompt_id
+prompts ||--o{ prompt_metrics_hourly : prompt_id
+prompts ||--o{ server_prompt_association : prompt_id
+resources ||--o{ resource_metrics : resource_id
+resources ||--o{ resource_metrics_hourly : resource_id
+resources ||--o{ resource_subscriptions : resource_id
+resources ||--o{ server_resource_association : resource_id
+roles ||--o{ user_roles : role_id
+servers ||--o{ email_api_tokens : server_id
+servers ||--o{ mcp_app_sessions : server_id
+servers ||--o{ server_a2a_association : server_id
+servers ||--o{ server_interfaces : server_id
+servers ||--o{ server_metrics : server_id
+servers ||--o{ server_metrics_hourly : server_id
+servers ||--o{ server_prompt_association : server_id
+servers ||--o{ server_resource_association : server_id
+servers ||--o{ server_task_mappings : server_id
+servers ||--o{ server_tool_association : server_id
+sso_providers ||--o{ sso_auth_sessions : provider_id
+structured_log_entries ||--o{ security_events : log_entry_id
+tools ||--o{ a2a_agents : tool_id
+tools ||--o{ server_tool_association : tool_id
+tools ||--o{ tool_metrics : tool_id
+tools ||--o{ tool_metrics_hourly : tool_id
+@enduml

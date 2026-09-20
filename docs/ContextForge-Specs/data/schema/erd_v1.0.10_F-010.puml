@@ -1,0 +1,9 @@
+@startuml erd_v1.0.10_F-010
+' F-010 — Bundled MCP Servers and Templates. This feature owns no persisted entity.
+hide circle
+
+note as N
+  F-010 stores nothing of its own.
+  See data-erd_v1.0.10_F-010.md for what it reads instead.
+end note
+@enduml
